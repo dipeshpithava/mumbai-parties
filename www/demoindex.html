@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title></title>
+
+        <!-- bootstrap !-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/flexslider.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+    </head>
+    <body class="bg">
+        <div id="header" class="container pad0">
+        <div class="menu-header">
+                <div class="col-sm-2 col-xs-2">
+                    <label onclick="go_to_search();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="searchloc" class="col-sm-10 col-xs-10 headsearch" style="padding: 6px 0px 0px 9px;">
+                    <div id="searchopt" class="searchdec"></div>
+                 <button class="btn btn-sm btn-link btnsrch" onclick="direct_to_map();"><span class="fa fa-2x fa-search"></span></button>
+                </div>
+
+             <!--    <div id="searchloc" class="col-sm-3 col-xs-3">
+                    <button class="btn btn-sm btn-danger" onclick="direct_to_map();"><span class="fa fa-2x fa-search"></span></button>
+                </div> -->
+            </div>
+            <!-- <div class="menu-header">
+                <div class="col-sm-2 col-xs-2">
+                    <label onclick="go_to_search();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="searchloc" class="col-sm-7 col-xs-7">
+                    <div id="searchopt"></div>
+                </div>
+                <div id="searchloc" class="col-sm-3 col-xs-3">
+                    <button class="btn btn-sm btn-danger" onclick="direct_to_map();"><span class="fa fa-2x fa-search"></span></button>
+                </div>
+            </div> -->
+        </div>
+<!--         <div class="menu_sidebar">
+            test <br>
+            test <br>
+            test <br>
+            test <br>
+        </div> -->
+        <div id="login" class="login">
+            <center>
+                <div class="logincontainer">
+                <div class="logo"><img src="/img/logo.png" class="img-reponsive"></div>
+                    <!-- <h3 class="text-center login-title">
+    
+                    </h3> -->
+                    <div class="account-wall">
+                    <div class="control-group">
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                          <input type="email" class="form-control" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="email" required>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                          <input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1" data-validation-required-message="Please provide your password" id="password" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="return login();" class="btn btn-lg btn-danger btn-block btnsn" type="submit">
+                            Sign In</button>
+
+                        <button onclick="" class="btn btn-lg btn-primary btn-block btnfb" type="submit">
+                            Sign In With <span> facebook</span></button>
+                    </div>
+                    <label class="latertxt"><p>NEVERMIND. I'LL SIGNUP LATER</p></label> 
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6"><label class="signotxt" onclick="forgotpass();"><p>Forgot your password?</p></label></div>
+                        <div class="col-sm-6 col-xs-6"><label class="signotxt" onclick="goto_register();"><p>New here? Sign Up</p></label></div>    
+                    </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="register" class="register">
+            <center>
+                <div class="registercontainer">
+                    <h3 class="text-center login-title"><img src="/img/partymeter.png" class="img-reponsive"></h3>
+                    <div class="account-wall">
+                    <div class="control-group">
+                        <div class="registerform">
+                            <input class="form-control" data-validation-required-message="Please enter your first name" id="fname" placeholder="First Name" required="" type="text">
+                        </div>
+                        <div class="registerform">
+                            <input class="form-control" data-validation-required-message="Please enter your email" id="newemail" placeholder="Email" required="" type="email">
+                        </div>
+                        <div class="registerform">
+                            <input type="password" id="newpassword" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="registerform">
+                            <input type="password" id="newcpassword" class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="registerform">
+                            <input id="tel" type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="return submit_data();" class="btn btn-lg btn-danger btn-block" type="submit">
+                            Sign Up</button>
+                    </div>
+                    <label class="registertxt" onclick="go_to_login();"><p> <  Back to Login</p></label>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="forgotpassword" class="forgotpassword">
+            <center>
+                <div class="logincontainer">
+                    <h3 class="text-center login-title">
+                    <!-- <img src="/img/partymeter.png" class="img-reponsive"> -->
+                    </h3>
+                    <div class="account-wall">
+                    <div class="control-group">
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                          <input type="email" class="form-control" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="emailid" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="forgot_password();" class="btn btn-lg btn-danger btn-block btnsn" type="submit">
+                            Get Password</button>
+                    </div>
+                    <label class="latertxt" onclick="go_toLogin();"><p>Back To Login</p></label> 
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="searchlocation" class="searchlocation">
+            <center>
+                <div class="searchbar">
+                    <div id="divlocation">
+                    </div>
+                </div>
+                <label id="searchentity" onclick="load_event_list();">
+                    <button type="button" class="btn btn-lg btn-danger">Search Events</button>
+                </label>
+            </center>
+        </div>
+        <section id="eventpage" class="eventpage">
+          <div id="flexslider" class="flexslider">
+        </div>
+        <div id="eventcontent" class="eventcontent"></div>
+        </section>
+        <div id="eventlist">
+            <section class="page">
+                <div id="topnav" class="topnav">
+                    <label class="toppad" id="1" onclick="filterlocation(this.id);">Karaoke</label>
+                    <label class="toppad" id="2" onclick="filterlocation(this.id);">Happy Hours</label>
+                    <label class="toppad" id="3" onclick="filterlocation(this.id);">Ladies Nights</label>
+                    <label class="toppad" id="4" onclick="filterlocation(this.id);">Special Offers</label>
+                    <label class="toppad" id="5" onclick="filterlocation(this.id);">Special Events</label>
+                </div>
+                <div id="tabnav" class="tabnav">
+                    <label onclick="today_list();" class="tabpad">TODAY</label>
+                    <label onclick="tomorrow_list();" class="tabpad">TOMMOROW</label>
+                    <label onclick="calendarview();">CALENDAR</label>
+                </div>
+                <div id="map-canvas" class="mapdisp"></div>
+                <div id="listview" class="container" style="margin-top: 5%;"></div>
+                <div id="calendarview" class="container" style="margin-top: 25%;"></div>
+                </div>
+                <div id="bottomnav" class="bottomnav">
+                    <div class="firstnav"><label onclick="displaymapview();">MAP VIEW</label></div>
+                    <div class="firstnav"><label onclick="displaylistview();">LIST VIEW</label></div>
+                </div>
+            </section>
+            <input type="hidden" id="location" name="location">
+            <input type="hidden" id="latitute" name="latitute">
+            <input type="hidden" id="longitute" name="longitute">
+            <input type="hidden" id="filter_id" name="filter_id">
+            <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>
+            <script type="text/javascript">
+            var list;
+
+                function goto_register(){
+                  $('#login').hide();
+                  $('#register').show();
+                }
+
+                function go_to_login(){
+                  $('#register').hide();
+                  $('#login').show();
+                }
+
+                function validateEmail(email){
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if (reg.test(email.value) == false) {
+                        alert('Invalid Email Address');
+                        return false;
+                    } return true; 
+                }   
+
+                function login(){
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false && password != null){
+                        $.ajax({
+                           url:'http://casaestilo.in/mparties/index.php/api/login_user/',
+                            type: 'post',
+                            data: {
+                                username: email,
+                                password: password,
+                            },
+                            success: function(data){                        
+                                $.each(data, function(index, value){
+                                    if (value.id == 0){
+                                        alert('Please check the username/password you have entered')
+                                    } else {
+                                        // get_user(value.id);
+                                        $("#searchlocation").show();
+                                        $("#login").hide();
+                                    }
+                                })
+                            }
+                        })
+                    } else { alert('Fill all the fields properly.') }
+                }
+
+                function submit_data(){
+                    var fname = document.getElementById('fname').value;
+                    var email = document.getElementById('newemail').value;
+                    var password = document.getElementById('newpassword').value;
+                    var cpassword = document.getElementById('newcpassword').value;
+                    var tel = document.getElementById('tel').value;
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false && fname != null && password != null && tel != null){
+                        if(password == cpassword){
+                            $.ajax({
+                               url:'http://casaestilo.in/mparties/index.php/api/register_user/',
+                                type: 'post',
+                                data: {
+                                    email: email,
+                                    password: password,
+                                    fname: fname,
+                                    tel: tel
+                                },
+                                success: function(data){
+                                  // get_user(data.user_id);
+                                }
+                            })
+                        } else { alert('Confirm Password does not match') }
+                    } else { alert('Fill all the fields') }
+                }
+
+                function forgot_password(){
+                    var email = document.getElementById('emailid').value;
+                    console.log(email);
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false){
+                        $.ajax({
+                           url:'http://casaestilo.in/mparties/index.php/api/forgot_password/',
+                            type: 'post',
+                            data: {
+                                username: email,
+                            },
+                            success: function(data){
+                                console.log(data);
+                                $.each(data, function(index, value){
+                                    if (value.id == 0){
+                                        alert('Username does not exists')
+                                    } else {
+                                        alert('You will get your new password on you email soon.');
+                                        $("#forgotpassword").hide();
+                                        $("#login").show();
+                                    }
+                                })
+                            }
+                        })
+                    } else { alert('Fill all the fields properly.'); }
+                }
+
+                function forgotpass(){
+                    $("#login").hide();
+                    $("#forgotpassword").show();
+                }
+
+            function loadsearch(){
+                $("#location").val(0);
+                $.ajax({
+                    url:'http://casaestilo.in/mparties/index.php/api/get_Event_palce/',
+                    type: 'post',
+                    crossDomain:true,
+                    success: function(data){
+                        $('#divlocation').ddslick({
+                            data: data,
+                            selectText: "Select your location",
+                            onSelected: function(data){
+                                $.each(data.selectedData, function(index, value){
+                                    $("#location").val(value);
+                                })
+                            } 
+                        });
+                    }
+                })
+            }
+
+            function loadsearchopt(){
+                $("#location").val(0);
+                $.ajax({
+                    url:'http://casaestilo.in/mparties/index.php/api/get_Event_palce/',
+                    type: 'post',
+                    crossDomain:true,
+                    success: function(data){
+                        $('#searchopt').ddslick({
+                            data: data,
+                            selectText: "Select your location",
+                            onSelected: function(data){
+                                $.each(data.selectedData, function(index, value){
+                                    $("#location").val(value);
+                                })
+                            } 
+                        });
+                    }
+                })
+            }
+
+            function go_to_search(){
+                $('#filter_id').val(0);                
+                $('#map-canvas').empty();
+                $('#listview').empty();
+                $("#header").hide();
+                $("#bottomnav").hide();
+                $("#eventpage").hide();
+                $("#register").hide();
+                $("#eventlist").hide();
+                $("#listview").hide();
+                $("#calendarview").hide();
+                $("#searchlocation").show();
+            }
+
+            function filterlocation(id){
+                var location = $("#location").val();
+                $('#map-canvas').empty();
+                $('#listview').empty();
+                $('#filter_id').val(id);
+                load_event_list();
+            }
+
+            function load_event_list(){
+                var id = $("#location").val();
+                if (id == 0) {
+                    alert('Select Option.');
+                } else {
+                    $('#searchlocation').hide();
+                    $("#eventpage").hide();
+                    $('#map-canvas').empty();
+                    $('#listview').empty();
+                    $("#calendarview").hide();
+                    $('#eventlist').show();
+                    $("#bottomnav").show();
+                    $.ajax({
+                        url: 'http://casaestilo.in/mparties/index.php/api/getlatlog',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: id
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            $.each(data, function(index, value){
+                                $("#latitute").val(value.latitude);
+                                $("#longitute").val(value.longitude);
+                            })
+                        initialize(id);
+                        }
+                    })
+                }
+            }
+
+                var map;
+                var image;
+                var infowindow = new google.maps.InfoWindow();
+                var marker, i;
+
+                function initialize(id){
+                    $("#header").show();
+                    var lat = $("#latitute").val();
+                    var lon = $("#longitute").val();
+                    map = new google.maps.Map(document.getElementById('map-canvas'), {
+                        zoom: 13,
+                            center: new google.maps.LatLng(lat, lon),
+                    });
+
+                    $.ajax({
+                        url:'http://casaestilo.in/mparties/index.php/api/get_entities_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id : id
+                        },
+                        success: function(data){
+                            console.log(data);
+                            list = data;
+                            // displaylist(data);
+                            $.each(data, function(index, value){
+                                var v = value.latitude;
+                                var s = value.longitude;
+                                console.log(v+' '+s);
+                                var eventtype = $('#filter_id').val();
+                            if (value.event_type == eventtype || eventtype == 0){
+                                    image = 'img/greenmarker.png';
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(v, s),
+                                        map: map,
+                                        icon: image
+                                    })
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            getevents(value.id);
+                                        }
+                                    })(marker));
+                                } else {
+                                    image = 'img/pearl1.png';
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(v, s),
+                                        map: map,
+                                        icon: image
+                                    })
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            getevents(value.id);
+                                        }
+                                    })(marker));
+                                }
+                            })
+                            $("#map-canvas").show();
+                        }
+                    })
+
+                }
+
+ /*               function redirecttogoogle(){
+                    window.location = "http://www.google.com";
+                }*/
+
+                function displaylist(data){
+                    $.each(list, function(index, value){
+                        var anchor = $(document.createElement('a'))
+                        anchor.attr('id', value.id)
+                        anchor.attr('onclick', 'getevents(this.id);')
+                        var mainlist = $(document.createElement('div'))
+                        mainlist.attr('class', 'listitem row')
+                        var subdiv = $(document.createElement('div'))
+                        subdiv.attr('class', 'col-xs-6');
+                        var subdi = $(document.createElement('div'))
+                        subdi.attr('class', 'col-xs-6');
+                        var img = "http://casaestilo.in/mparties/assets/uploads/"+value.image;
+                        var title = $(document.createElement('h1')).html(value.entity_name)
+                        var rating = $(document.createElement('p')).html("Rating : "+value.rating)
+                        var category = $(document.createElement('p')).html("Category : "+value.category)
+                        var image = $("<img>")
+                        image.attr('class', 'eventlistimg')
+                        image.attr('style', 'background: url('+img+')');
+                        $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                    })
+                }
+
+                function getevents(id){
+                    console.log(id);
+                    $("#listview").hide();
+                    $("#map-canvas").hide();
+                    $("#eventpage").show();
+                    loadeventdata(id);
+                }
+
+                function loadeventdata(id){
+                    var location = $("#location").val();
+                    $.ajax({
+                        url: 'http://casaestilo.in/mparties/index.php/api/get_events',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id : id,
+                            location : location,
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            $.each(data, function(index, value){
+                                $('#eventcontent').empty();
+                                $("#flexslider").empty();
+                                displayeventdata(data);
+                            })
+                        }
+                    })                    
+                }
+
+                function displayslideshow(data){
+                    $.each(data.images, function(index, value){
+                        $.each(value, function(index, data){
+                            var image = "http://casaestilo.in/mparties/assets/uploads/"+data.url;
+                            var img = $("<img>")
+                            img.attr('src', image)
+                            img.attr('style', 'width: 100%; height: 300px')
+                            $("#flexslider").append(img)
+                            $('#flexslider').cycle({ 
+                                fx:      'turnDown', 
+                                delay:   -4000 
+                            });
+                        })
+                    })
+                }
+
+                function displayeventdata(data){
+                    displayslideshow(data);
+                    $.each(data.content, function(index, value){
+                        var mainrowf = $(document.createElement('div'))
+                        mainrowf.attr('class', 'row')
+                        var ftwel = $(document.createElement('div'))
+                        ftwel.attr('class', 'col-xs-12')
+                        var eventname = $(document.createElement('h2')).html(value.event_name)
+                        eventname.attr('class', 'area')
+                        var entityname = $(document.createElement('p')).html(value.entity_name)
+                        entityname.attr('class', 'area')
+                        var address = $(document.createElement('p')).html('Location : '+value.address)
+                        address.attr('style','line-height: 20px !important')
+                        var divs = $(document.createElement('div'))
+                        divs.attr('style', 'width: 100%; background: #eceeec; line-height: 20px')
+                        var mianrowf = $(document.createElement('div'))
+                        mianrowf.attr('class', 'row')
+                        var divsubsf = $(document.createElement('div'))
+                        divsubsf.attr('class', 'col-xs-6')
+                        var pfortime = $(document.createElement('p')).html('Time : '+value.event_start)
+                        var pforavg = $(document.createElement('p')).html('Average cost two : '+value.average_cost_two)
+                        var divsubss = $(document.createElement('div'))
+                        divsubss.attr('class', 'col-xs-6')
+                        var img = "img/network.png";
+                        var image = $("<img>")
+                        image.attr('class', 'img-responsive')
+                        image.attr('url', img)
+                        $('#eventcontent').append(mainrowf.append(ftwel.append(eventname))).append(entityname).append(address).append(divs.append(mianrowf.append(divsubsf.append(pfortime).append(pforavg)).append(divsubss.append(image))))
+                    })
+                }
+
+                function tomorrow_list(){
+                    $("#calendarview").hide();
+                    $("#eventpage").hide();
+                    var locationid = $("#location").val();
+                    console.log(locationid);
+                    $.ajax({
+                        url: 'http://casaestilo.in/mparties/index.php/api/get_tommorow_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: locationid
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            var todaydata = data;
+                            $("#listview").empty();
+                            $.each(data, function(index, value){
+                                if(value.id == 0){
+                                    var txt = $(document.createElement('h1')).html('There are no events available for today check for other venues or other location.');
+                                    txt.attr('style', 'margin-top: 20%');
+                                    $("#listview").append(txt);
+                                } else {
+                                    displaylist(todaydata);
+                                }
+                            })
+                        }
+                    })
+
+                }
+
+                function today_list(){
+                    $("#calendarview").hide();
+                    $("#eventpage").hide();
+                    var locationid = $("#location").val();
+                    console.log(locationid);
+                    $.ajax({
+                        url: 'http://casaestilo.in/mparties/index.php/api/get_today_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: locationid
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            var todaydata = data;
+                            $("#listview").empty();
+                            $.each(data, function(index, value){
+                                if(value.id == 0){
+                                    var txt = $(document.createElement('h1')).html('There are no events available for today check for other venues or other location.');
+                                    txt.attr('style', 'margin-top: 20%');
+                                    $("#listview").append(txt);
+                                } else {
+                                    displaylist(todaydata);
+                                }
+                            })
+                        }
+                    })
+                }
+
+                function direct_to_map(){
+                    $("#map-canvas").empty();
+                    $("#tabnav").hide();
+                    $("#topnav").show();
+                    load_event_list();
+                }
+
+                function calendarview(){
+                    $('#listview').hide();
+                    $("#eventpage").hide();
+                    $('#calendarview').show();
+                    var id = $("#location").val();
+                    $.ajax({
+                       url:'http://casaestilo.in/mparties/index.php/api/calendar_view/',
+                        type: 'post',
+                        data: {
+                            id: id
+                        },
+                        success: function(data){
+                            console.log(data);
+
+                    $('#calendarview').fullCalendar({
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'month,agendaWeek,agendaDay'
+                        },
+                        defaultDate: '2015-02-12',
+                        businessHours: true,
+                        editable: true,
+                        events: data,
+                        eventClick: function(event) {
+                            if (event.entiid) {
+                                getevents(event.entiid);
+                            }
+                        }
+                    });
+                        }
+                    })
+                }
+
+                function go_toLogin(){
+                    $("#forgotpassword").hide();
+                    $("#login").show();
+                }
+            </script>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        
+        <script type="text/javascript">
+            $('div[data-include]').each(function() {
+                $(this).load( $(this).attr('data-include') + '.html').trigger('create');
+            });
+        </script>
+
+        <script type="text/javascript" src="https://dl.dropboxusercontent.com/u/40036711/Scripts/jquery.ddslick.min.js"></script>
+
+        <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#header").hide();
+                    $("#eventpage").hide();
+                    $("#bottomnav").hide();
+                    $("#register").hide();
+                    $("#searchlocation").hide();                
+                    $("#eventlist").hide();
+                    $("#listview").hide();
+                    $("#calendarview").hide();
+                    $("#forgotpassword").hide();
+                    loadsearch();
+                    $("#filter_id").val(0);
+                    loadsearchopt();
+                });
+
+            function displaymapview(){
+                $("#tabnav").hide();
+                $("#topnav").show();
+                $("#listview").hide();
+                $("#eventpage").hide();
+                $("#map-canvas").show();
+                $("#calendarview").hide();
+            }
+
+            function displaylistview(){
+                $("#eventpage").hide();
+                $("#calendarview").hide();
+                $("#topnav").hide();
+                $("#map-canvas").hide();
+                $("#tabnav").show();
+                $("#listview").show();
+                $("#listview").empty();
+                var data = list;
+                displaylist(data);
+            }
+        </script>
+        <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/lib/moment.min.js"></script>
+        <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.min.js"></script>
+        <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
+    </body>
+</html>

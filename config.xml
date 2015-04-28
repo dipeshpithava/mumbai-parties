@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.nightlybuilds.mumbaiparty" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MumbaiParties</name>
+    <platform name="android">
+        <splash src="img/1.png" density="land-hdpi"/>
+        <splash src="img/2.png" density="land-ldpi"/>
+        <splash src="img/1.png" density="land-mdpi"/>
+        <splash src="img/2.png" density="land-xhdpi"/>
+
+        <splash src="img/1.png" density="port-hdpi"/>
+        <splash src="img/2.png" density="port-ldpi"/>
+        <splash src="img/1.png" density="port-mdpi"/>
+        <splash src="img/2.png" density="port-xhdpi"/>
+        <js-module src="www/android/launchnavigator.js" name="LaunchNavigator">
+            <clobbers target="launchnavigator" />
+        </js-module>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="LaunchNavigator">
+                <param name="android-package" value="uk.co.workingedge.phonegap.plugin.LaunchNavigator"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/LaunchNavigator.java" target-dir="src/uk/co/workingedge/phonegap/plugin" />
+    </platform>
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="1000" />
+    <feature name="org.apache.cordova.facebook.Connect">
+        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+    </feature>    
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
+        <param name="APP_ID" value="908572929213032" />
+        <param name="APP_NAME" value="Mumbai Parties" />
+    </gap:plugin>    
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <gap:plugin name="com.jaeger.html5video" version="1.2.1" />
+    <content src="index.html" />
+    <access origin="tel:*" launch-external="yes" />
+    <access origin="*" />
+</widget>

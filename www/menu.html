@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>menu</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+   
+  </head>
+  <body>
+    <div class container>
+    <div class="subnav">
+      <div class="wrapper">
+        <a class="current" href="#">Main</a>
+        <a href="#">Another Long Category</a>
+        <a href="#">Try another long category</a>
+        <a href="#">Still another very long category</a>
+      </div>
+</div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   <script>
+   $(document).ready(function(){
+      $(function(){
+    // var menuWidth=0;
+    // $('.wrapper a').map(function(){
+    //     menuWidth = menuWidth + $(this).outerWidth(true);
+    // });
+    // + 15px as fix, this maybe vary in your project
+    $('.wrapper').css('width', (menuWidth+15)); 
+});
+   });
+   </script>
+  </body>
+</html>
+
+            $("#nav-example").owlCarousel({
+                items:4,
+                temsDesktop:[1199,4],
+                itemsDesktopSmall:[979,4],
+                itemsTablet:[768,4],
+                itemsMobile:[479,4]
+            });   
+
+
+
+
+       <a class="current" href="#"><label id="0" onclick="direct_to_map();">Party World</label></a>
+                                <a href="#"><label id="2" onclick="filterlocation(this.id);">Happy Hours</label></a>
+                                <a href="#"><label id="1" onclick="filterlocation(this.id);">Karaoke</label></a>
+                                <a href="#"><label id="3" onclick="filterlocation(this.id);">Ladies Night</label></a>
+                                <a href="#"><label id="4" onclick="filterlocation(this.id);">Special Events</label></a>
+                                <a href="#"><label id="5" onclick="filterlocation(this.id);">Cricket Events</label></a>
+                                <a href="#"><label id="6" onclick="filterlocation(this.id);">Football Events</label></a> -->       

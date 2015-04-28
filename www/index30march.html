@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title></title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"> -->
+    </head>
+    <body class="bg">
+        <div id="header" class="container pad0" style="display: none">
+            <div class="menu-header">
+                <div id="" class="col-sm-2 col-xs-2">
+                    <label><span class="fa fa-user fa-2x menu_btn"></span></label>
+                </div>
+                <div class="headercenter">
+                    <div id="searchloc" class=" headsearch" style="">
+                        <div id="searchopt" class="searchdec"></div>
+                     <!-- <button class="btn btn-sm btn-link btnsrch searbtn" onclick="direct_to_map();"><span class="fa fa-2x fa-search"></span></button> -->
+                    </div>
+                </div>
+            </div>
+<!--              <div class="menu-header">
+                <div id="angleleft" class="col-sm-2 col-xs-2">
+                    <label><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="searchloc" class="col-sm-7 col-xs-7">
+                    <div id="searchopt"></div>
+                </div>
+                <div id="searchloc" class="col-sm-3 col-xs-3">
+                    <button class="btn btn-sm btn-danger" onclick="direct_to_map();"><span class="fa fa-2x fa-search"></span></button>
+                </div>
+            </div> -->
+        </div>
+        <div class="menu_sidebar">
+            <div class="acc-nav">
+                <div class="accli">
+                    <h1>Party Animals</h1>
+                </div>
+                <div class="accli">
+                    <h1>Invite Friends</h1>
+                </div>
+                <div class="accli">
+                    <h1>Share Movements</h1>
+                </div>
+                <div class="accli">
+                    <label onclick="makeacall();"><h1>Call Driver</h1></label>
+                </div>
+                <div class="accli">
+                    <label onclick="makeacall();"><h1>Call TAXY</h1></label> 
+                </div>
+                <div class="accli">
+                    <h1>Logout</h1>
+                </div>
+            </div>
+        </div>
+        <div id="login" class="login">
+            <center>
+                <div class="logincontainer">
+                <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                    <div class="account-wall">
+                    <div class="control-group">
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                          <input type="email" class="form-control extcss" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="email" required>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                          <input type="password" class="form-control extcss" placeholder="password" aria-describedby="basic-addon1" data-validation-required-message="Please provide your password" id="password" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="return login();" class="btn btn-lg btn-block btnsn" type="submit">
+                            SIGN IN TO PARTY</button>
+
+                        <button onclick="facebook_login();" class="btn btn-lg btn-primary btn-block btnfb" type="submit">
+                            CONNECT WITH <i class="fa fa-facebook-official"></i></button>
+                    </div>
+                    <label onclick="goto_home();" class="latertxt"><p>NEVERMIND. I'LL SIGNUP LATER</p></label> 
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-6"><label class="signotxt" onclick="forgotpass();"><p>FORGOT YOUR PASSWORD?</p></label></div>
+                        <div class="col-sm-6 col-xs-6"><label class="signotxt" onclick="goto_register();"><p>SIGN UP</p></label></div>    
+                    </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="register" class="register" style="display: none">
+            <center>
+                <div class="registercontainer">
+              <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                    <div class="account-wall">
+                        <div class="control-group">
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                          <input type="text" class="form-control extcss" placeholder="First Name" aria-describedby="basic-addon1" data-validation-required-message="Please enter your name" id="fname" required>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope txtico"></i></span>
+                          <input type="email" class="form-control extcss" placeholder="Email" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="newemail" required>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                          <input type="password" class="form-control extcss" placeholder="Password" aria-describedby="basic-addon1" data-validation-required-message="Please provide your password" id="newpassword" required>
+                        </div>
+                         <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                          <input type="password" class="form-control extcss" placeholder="Confirm Password" aria-describedby="basic-addon1" data-validation-required-message="Please confirm your password" id="newcpassword" required>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar-o txtico"></i></span>
+                          <input type="tel" class="form-control extcss" placeholder="Age" aria-describedby="basic-addon1" data-validation-required-message="Please enter your Age" id="age" required>
+                        </div>
+                        <div class="input-group regform">
+                            <span class="input-group-addon" style="padding: 0px 12px !important">
+                                <input type="radio" id="male" value="male" name="gender"><br>
+                                <input type="radio" id="female" value="female" name="gender">
+                            </span>
+                            <input type="text" class="form-control extcss" value="Male" disabled>
+                            <input type="text" class="form-control extcss" value="Female" disabled>
+                        </div>
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone txtico"></i></span>
+                          <input type="tel" class="form-control extcss" placeholder="Phone Number" aria-describedby="basic-addon1" data-validation-required-message="Please enter your Phone Number" id="tel" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="return submit_data();" class="btn btn-lg btn-block btnsn" type="submit">
+                            SIGN UP</button>
+                    </div>
+                    <label class="latertxt" onclick="go_to_login();"><p>BACK TO LOGIN</p></label> 
+                        </div>
+                </div>
+                </div>
+            </center>
+        </div>
+        <div id="forgotpassword" class="forgotpassword">
+            <center>
+                <div class="logincontainer">
+                <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                    <div class="account-wall">
+                    <div class="control-group">
+                        <div class="input-group regform">
+                          <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                          <input type="email" class="form-control" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="emailid" required>
+                        </div>
+                        <p class="help-block" style=""></p>
+                        <button onclick="forgot_password();" class="btn btn-lg btn-block btnsn" type="submit">
+                            CHANGE PASSWORD</button>
+                    </div>
+                    <label class="latertxt" onclick="go_toLogin();"><p>BACK TO LOGIN</p></label> 
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="searchlocation" class="searchlocation">
+            <center>
+                <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>            
+                <div class="locationcon">
+<!--                     <h1>WHAT's <br> HAPPENING</h1> -->
+                    <div class="searchbar">
+                        <div id="divlocation" style="width: 260px; border-image: url('img/bottomline.png') 0 0 30 0 !important; border-bottom: 5px !important;">
+                        </div>
+                    </div>
+                </div>
+<!--                 <div style="margin-top: 300px">
+                    <p>Name: <span id="faebookname"></span></p>
+                    <input type="text" id="faebookname" name="faebookname">
+                </div> -->
+                <!-- <label id="searchentity" onclick="load_event_list();">
+                    <button type="button" class="btn btn-lg btn-danger">Search Events</button>
+                </label> -->
+            </center>
+        </div>
+        <section id="eventpage" class="eventpage">
+<!--             <div id="flexslider" class="flexslider"></div>
+            <div id="eventcontent" class="eventcontent"></div> -->
+            <div id="eventcontent" class="eventcontent">
+            	<div id="barimage" style="background: url('http://casaestilo.in/mparties/assets/uploads/05eb8-Hoppipola-21.jpg'); background-size: cover; height: 350px; width: 100%; opacity: 0.6">
+	            	<div style="padding: 65% 0 0 5%">
+		            	<div style="background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff">
+		            		<span class="fa fa-2x fa-phone" style="padding: 30%"></span>
+		            	</div>
+	            	</div>
+            	</div>
+            	<div class="eventname">
+            		<h1>Event Name</h1>
+            	</div>
+            	<div class="eventsub">
+            		<h1>9pm to 1am</h1>
+            	</div>
+            	<div class="eventsub">
+            		<h1>Boveda, Andheri(W), Mumbai</h1>
+            	</div>
+            	<div class="eventsub">
+            		<h1>menu</h1>
+	        	</div>
+            </div>
+        </section>
+        <div id="eventlist" style="display: none">
+            <section class="page">
+                <div id="filternav">
+                    <div id="topnav" class="topnav">
+                        <label class="toppad" id="0" onclick="direct_to_map();">Party World</label>
+                    </div>
+                </div>
+                <div id="tabnav" class="tabnav">
+                    <label id="today" onclick="today_list();" class="tabpad">TODAY</label>
+                    <label id="upcoming" onclick="tomorrow_list();" class="tabpad">UPCOMING</label>
+                    <label id="offer" onclick="calendarview();">OFFERS</label>
+                </div>
+                <div id="map-canvas" class="mapdisp"></div>
+                <div id="listview" class="container" style="margin-top: 5%; margin-bottom: 22%; background: #151515"></div>
+            </section>
+        </div>
+        <div id="bottomnav" class="bottomnav">
+            <div class="bck"><label onclick="backtoloc();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label></div>
+            <div class="firstnav"><label id="mapview" onclick="displaymapview();">MAP VIEW</label></div>
+            <div class="firstnav"><label id="lsview" onclick="displaylistview();">LIST VIEW</label></div>
+        </div>
+        <input type="hidden" id="location" name="location">
+        <input type="hidden" id="latitute" name="latitute">
+        <input type="hidden" id="longitute" name="longitute">
+        <input type="hidden" id="filter_id" name="filter_id">
+        <input type="hidden" id="idc" name="idc">
+        <input type="hidden" id="zoom" name="zoom">
+        <script type="text/javascript" src="http://connect.facebook.net/en_US/sdk.js"></script>
+        <script src="js/openfb.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>
+        <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
+        <script type="text/javascript">
+            // openFB.init('', 'http://192.168.1.15/mumbai_parties/mumbai_parties/www/oauthcallback.html', window.localStorage);
+            openFB.init({appId: '908572929213032'});
+            function facebook_login(){
+                openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+                        // alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+                        $('#login').hide();
+                        $('#searchlocation').show();
+                        getInfo();
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,read_stream,publish_stream'});
+            }
+
+            function getInfo() {
+                openFB.api({
+                    path: '/me',
+                    success: function(data) {
+                        // $.each(data, function(index, value){
+                        //     console.log(value.id);
+                        //     $("#faebookname").val() = value.id;
+                        // })
+                        console.log(JSON.stringify(data));
+                        console.log(data.name);
+                        alert(data.name);
+                    },
+                    error: errorHandler});
+            }
+
+            function makeacall(){
+                window.open('tel:9769102406', '_system'); 
+            }
+
+            function backtoloc(){
+                $("#eventpage").hide();
+                $("#eventlist").hide();
+                $("#bottomnav").hide();
+                $("#searchloc").hide();
+                $("#searchlocation").show();
+            }
+
+            function goto_home(){
+                $("#login").hide();
+                $(".menu_btn").hide();
+                $("#searchloc").hide();
+                $('#header').show();
+                $("#searchlocation").show();
+            }
+
+
+                function goto_register(){
+                  $('#login').hide();
+                  $('#register').show();
+                }
+
+                function go_to_login(){
+                  $('#register').hide();
+                  $('#login').show();
+                }
+
+                function validateEmail(email){
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if (reg.test(email.value) == false) {
+                        alert('Invalid Email Address');
+                        return false;
+                    } return true; 
+                }   
+
+                function login(){
+                    var email = document.getElementById('email').value;
+                    var password = document.getElementById('password').value;
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false && password != null){
+                        $.ajax({
+                           url:'http://192.168.1.15/mparties/index.php/api/login_user/',
+                            type: 'post',
+                            data: {
+                                username: email,
+                                password: password,
+                            },
+                            success: function(data){                        
+                                $.each(data, function(index, value){
+                                    if (value.id == 0){
+                                        alert('Please check the username/password you have entered')
+                                    } else {
+                                        // get_user(value.id);
+                                        $("#searchlocation").show();
+                                        $('#header').show();
+                                        $("#searchloc").hide();
+                                        $("#login").hide();
+                                    }
+                                })
+                            }
+                        })
+                    } else { alert('Fill all the fields properly.') }
+                }
+
+                function submit_data(){
+                    var fname = document.getElementById('fname').value;
+                    var email = document.getElementById('newemail').value;
+                    var password = document.getElementById('newpassword').value;
+                    var cpassword = document.getElementById('newcpassword').value;
+                    var tel = document.getElementById('tel').value;
+                    var age = document.getElementById('age').value;
+                    var none;
+                    if(document.getElementById('male').checked == true){
+                        gndr = "Male";
+                    } else if(document.getElementById('female').checked == true){
+                        gndr = "Female";
+                    }
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false && fname != null && password != null && tel != null){
+                        if(password == cpassword){
+                            $.ajax({
+                               url:'http://192.168.1.15/mparties/index.php/api/register_user/',
+                                type: 'post',
+                                data: {
+                                    email: email,
+                                    password: password,
+                                    fname: fname,
+                                    tel: tel,
+                                    age: age,
+                                    gndr: gndr,
+                                },
+                                success: function(data){
+                                    $("#register").hide();
+                                    $("#login").show();
+
+                                }
+                            })
+                        } else { alert('Confirm Password does not match') }
+                    } else { alert('Fill all the fields') }
+                }
+
+                function forgot_password(){
+                    var email = document.getElementById('emailid').value;
+                    $("#idc").val(email);
+                    console.log(email);
+                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+                    if(reg.test(email) != false){
+                        $.ajax({
+                           url:'http://192.168.1.15/mparties/index.php/api/forgot_password/',
+                            type: 'post',
+                            data: {
+                                username: email,
+                            },
+                            success: function(data){
+                                console.log(data);
+                                $.each(data, function(index, value){
+                                    if (value.id == 0){
+                                        alert('Username does not exists')
+                                    } else {
+                                        alert('You will get your new password on you email soon.');
+                                        $("#forgotpassword").hide();
+                                        $("#login").show();
+                                    }
+                                })
+                            }
+                        })
+                    } else { alert('Fill all the fields properly.'); }
+                }
+
+                function forgotpass(){
+                    $("#login").hide();
+                    $("#forgotpassword").show();
+                }
+
+            function load_filterlist(){
+                $.ajax({
+                    url:'http://192.168.1.15/mparties/index.php/api/get_filters/',
+                    type: 'post',
+                    crossDomain:true,
+                    success: function(data){
+                        $.each(data, function(index, value){
+                            var lbl = $(document.createElement('label')).html(value.name)
+                            lbl.attr('class', 'toppad')
+                            lbl.attr('id', value.id)
+                            lbl.attr('onclick', 'filterlocation(this.id);')
+                            $('#topnav').append(lbl);
+
+                        })
+                    }
+                })                
+            }
+
+            function loadsearch(){
+                $('.menu-header').hide();
+                $("#location").val(0);
+                $.ajax({
+                    url:'http://192.168.1.15/mparties/index.php/api/get_Event_palce/',
+                    type: 'post',
+                    crossDomain:true,
+                    success: function(data){
+                        $('#divlocation').ddslick({
+                            data: data,
+                            selectText: "around me",
+                            onSelected: function(data){
+                                $.each(data.selectedData, function(index, value){
+                                    $('#filter_id').val(0);
+                                    $("#location").val(value);
+                                })
+                                direct_to_map();
+                                $('.menu-header').show();
+                            } 
+                        });
+                    }
+                })
+            }
+
+            function loadsearchopt(){
+                $("#location").val(0);
+                $.ajax({
+                    url:'http://192.168.1.15/mparties/index.php/api/get_Event_palce/',
+                    type: 'post',
+                    crossDomain:true,
+                    success: function(data){
+                        $('#searchopt').ddslick({
+                            data: data,
+                            selectText: "around me",
+                            onSelected: function(data){
+                                $.each(data.selectedData, function(index, value){
+                                    $('#filter_id').val(0);
+                                    $("#location").val(value);
+                                })
+                            direct_to_map();
+                            }
+                        });
+                    }
+                })
+            }
+
+            // function go_to_search(){
+            //     $("#eventpage").hide();
+            //     $("#angleleft").hide();
+            //     $("#listview").show();
+            // }
+
+            function filterlocation(id){
+                var location = $("#location").val();
+                $('#map-canvas').empty();
+                $('#listview').empty();
+                $('#filter_id').val(id);
+                load_event_filter_list();
+            }
+
+            function load_event_filter_list(){
+                var id = $("#location").val();
+                if (id == 0) {
+                    alert('Select Option.');
+                } else {
+                    $('#searchlocation').hide();
+                    $("#eventpage").hide();
+                    $('#listview').empty();
+                    $("#calendarview").hide();
+                    $('#eventlist').show();
+                    $("#bottomnav").show();
+                    $.ajax({
+                        url: 'http://192.168.1.15/mparties/index.php/api/getlatlog',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: id
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            $.each(data, function(index, value){
+                                $("#latitute").val(value.latitude);
+                                $("#longitute").val(value.longitude);
+                                $("#zoom").val(value.zoom);
+                            })
+                        initialize_filter(id);
+                        }
+                    })
+                }
+            }
+
+
+            function load_event_list(){
+                $('#searchloc').show();
+                var id = $("#location").val();
+                if (id == 0) {
+                    alert('Select Option.');
+                } else {
+                    $('#searchlocation').hide();
+                    $("#eventpage").hide();
+                    $('#listview').empty();
+                    $("#calendarview").hide();
+                    $('#eventlist').show();
+                    $("#bottomnav").show();
+                    $.ajax({
+                        url: 'http://192.168.1.15/mparties/index.php/api/getlatlog',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: id
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            $.each(data, function(index, value){
+                                $("#latitute").val(value.latitude);
+                                $("#longitute").val(value.longitude);
+                                $("#zoom").val(value.zoom);
+                            })
+                        initialize(id);
+                        }
+                    })
+                }
+            }
+
+                var map;
+                var image;
+                var marker, i;
+                var MY_MAPTYPE_ID = 'mumbai_parties';
+
+                function initialize(id){
+                    var lat = $("#latitute").val();
+                    var lon = $("#longitute").val();
+                    var zm = $("#zoom").val();
+                    var zoomd = parseInt(zm);
+                    map = new google.maps.Map(document.getElementById('map-canvas'), {
+                        zoom: zoomd,
+                        center: new google.maps.LatLng(lat, lon),
+                        mapTypeControlOptions: {
+                              mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                            },
+                            mapTypeId: MY_MAPTYPE_ID
+                    });
+
+                    var styles = [
+                        {
+                        featureType: 'all',
+                        elementType: 'all',
+                          stylers: [
+                            { hue: '#0800ff' },
+                            { invert_lightness: 'true' },
+                            { saturation: -100 }
+                          ]
+                        }
+                    ];
+
+                    var styledMapOptions = {
+                        name: 'Mumbai Parties'
+                    };
+
+                    var customMapType = new google.maps.StyledMapType(styles, styledMapOptions);
+
+                    map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+
+                    $.ajax({
+                        url:'http://192.168.1.15/mparties/index.php/api/get_entities_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id : id
+                        },
+                        success: function(data){
+                            console.log(data);
+                            $.each(data, function(index, value){
+                                var v = value.latitude;
+                                var s = value.longitude;
+                                var bar = value.entity_name;
+                                console.log(v+' '+s);
+                                var eventtype = $('#filter_id').val();
+                            if (value.event_type == eventtype || eventtype == 0){
+                                    image = 'img/party-meter.gif';
+                                    marker = new MarkerWithLabel({
+                                        position: new google.maps.LatLng(v, s),
+                                        map: map,
+                                        icon: image,
+                                        labelContent: bar,
+                                        labelAnchor: new google.maps.Point(-10, 30),
+                                        labelClass: "labels",
+                                        labelInBackground: false
+                                    })
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            geteventsbyentity(value.id);
+                                        }
+                                    })(marker));
+                                } else {
+                                    image = 'img/party-meter.png';
+                                    marker = new MarkerWithLabel({
+                                        position: new google.maps.LatLng(v, s),
+                                        map: map,
+                                        icon: image,
+                                        labelContent: bar,
+                                        labelAnchor: new google.maps.Point(-10, 30),
+                                        labelClass: "labels",
+                                        labelInBackground: false
+                                    })
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            geteventsbyentity(value.id);
+                                        }
+                                    })(marker));
+                                }
+                            })
+                            $("#map-canvas").show();
+                        }
+                    })
+                }
+
+            function initialize_filter(id){
+                var lat = $("#latitute").val();
+                var lon = $("#longitute").val();
+                var zm = $("#zoom").val();
+                var zoomd = parseInt(zm);
+                map = new google.maps.Map(document.getElementById('map-canvas'), {
+                    zoom: zoomd,
+                    center: new google.maps.LatLng(lat, lon),
+                        mapTypeControlOptions: {
+                              mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                            },
+                            mapTypeId: MY_MAPTYPE_ID
+                    });
+
+                    var styles = [
+                        {
+                        featureType: 'all',
+                        elementType: 'all',
+                          stylers: [
+                            { hue: '#0800ff' },
+                            { invert_lightness: 'true' },
+                            { saturation: -100 }
+                          ]
+                        }
+                    ];
+
+                    var styledMapOptions = {
+                        name: 'Mumbai Parties'
+                    };
+
+                    var customMapType = new google.maps.StyledMapType(styles, styledMapOptions);
+
+                    map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+
+                var filter = $('#filter_id').val();
+
+                $.ajax({
+                    url:'http://192.168.1.15/mparties/index.php/api/get_entities_filter_list/',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id : id,
+                        filter : filter,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        list = data;
+                        // displaylist(data);
+                        $.each(data, function(index, value){
+                            var v = value.latitude;
+                            var s = value.longitude;
+                            var bar = value.entity_name;
+                            console.log(v+' '+s);
+                            image = 'img/greenmark.png';
+                            marker = new MarkerWithLabel({
+                                position: new google.maps.LatLng(v, s),
+                                map: map,
+                                icon: image,
+                                labelContent: bar,
+                                labelAnchor: new google.maps.Point(-10, 30),
+                                labelClass: "labels",
+                                labelInBackground: false
+                            })
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function() {
+                                    geteventsbyentity(value.id);
+                                }
+                            })(marker));
+                        })
+                    $("#map-canvas").show();
+                    }
+                })
+            }
+
+                function displaylist(data){
+                    $('#listview').show();
+                    $.each(data, function(index, value){
+                        var anchor = $(document.createElement('a'))
+                        anchor.attr('id', value.event_id)
+                        anchor.attr('onclick', 'getevents(this.id);')
+                        var mainlist = $(document.createElement('div'))
+                        mainlist.attr('class', 'listitem row')
+                        var subdiv = $(document.createElement('div'))
+                        subdiv.attr('class', 'col-xs-6');
+                        var subdi = $(document.createElement('div'))
+                        subdi.attr('class', 'col-xs-6 context');
+                        var img = "http://192.168.1.15/mparties/assets/uploads/"+value.image;
+                        var title = $(document.createElement('h1')).html(value.event_name)
+                        title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                        var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                        var category = $(document.createElement('p')).html("Category : "+value.category)
+                        rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                        category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                        var image = $("<img>")
+                        image.attr('class', 'eventlistimg')
+                        image.attr('style', 'background: url('+img+')');
+                        $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                    })
+                }
+
+                function geteventsbyentity(id){
+                    console.log(id);
+                    $("#calendarview").hide();
+                    $("#listview").hide();
+                    $("#map-canvas").hide();
+                    $("#eventpage").show();
+                    loadeventbyentity(id);
+                }
+
+                function getevents(id){
+                    console.log(id);
+                    $("#calendarview").hide();
+                    $("#listview").hide();
+                    $("#map-canvas").hide();
+                    $("#eventpage").show();
+                    loadeventdata(id);
+                }
+
+                var eventdata;
+                function loadeventdata(id){
+                    // $('#eventcontent').empty();
+                    $("#flexslider").empty();
+                    $("#topnav").hide();
+                    $("#tabnav").show();
+                    var location = $("#location").val();
+                    $.ajax({
+                        url: 'http://192.168.1.15/mparties/index.php/api/get_events',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id : id,
+                            location : location,
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            console.log(data);
+                            $("#angleleft").show();
+                            displayeventdata(data);
+                        }
+                    })                    
+                }
+
+                function loadeventbyentity(id){
+                    // $('#eventcontent').empty();
+                    $("#flexslider").empty();
+                    $("#topnav").hide();
+                    $("#tabnav").show();
+                    var location = $("#location").val();
+                    console.log(id);
+                    console.log(location);
+                    $.ajax({
+                        url: 'http://casaestilo.in/mparties/index.php/api/get_events_by_entity',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id : id,
+                            location : location,
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            console.log(data);
+                            $("#angleleft").show();
+                            displayeventdata(data);
+                        }
+                    })                    
+                }                
+
+                function displayslideshow(data){
+                    $.each(data.images, function(index, value){
+                        $.each(value, function(index, data){
+                            var image = "http://192.168.1.15/mparties/assets/uploads/"+data.url;
+                            var img = $("<img>")
+                            img.attr('src', image)
+                            img.attr('style', 'width: 100%; height: 300px; z-index: 6 !important')
+                            $("#flexslider").append(img)
+                            $('#flexslider').cycle({ 
+                                fx:      'turnDown', 
+                                delay:   -4000 
+                            });
+                        })
+                    })
+                }
+
+                // function displayeventdata(data){
+                //     console.log(data);
+                //     displayslideshow(data);
+                //     $.each(data.content, function(index, value){
+                //         var mainrowf = $(document.createElement('div'))
+                //         mainrowf.attr('class', 'row area')
+                //         var ftwel = $(document.createElement('div'))
+                //         ftwel.attr('class', 'col-xs-8')
+                //         var eventname = $(document.createElement('h2')).html(value.event_name)
+                //         var location = $(document.createElement('div'))
+                //         location.attr('class', 'row area')
+                //         var divaddress = $(document.createElement('div'))
+                //         divaddress.attr('class', 'col-xs-12')
+                //         var entityname = $(document.createElement('p')).html(value.entity_name)
+                //         entityname.attr('style','line-height: 20px !important; padding: 0 4%')
+                //         // entityname.attr('class', 'area')
+                //         var address = $(document.createElement('p')).html('Location : '+value.address)
+                //         // address.attr('style','line-height: 20px !important; padding: 0 4%')
+                //         var divs = $(document.createElement('div'))
+                //         // divs.attr('style', 'width: 100%; background: #eceeec; line-height: 20px; padding: 0 4%')
+                //         var mianrowf = $(document.createElement('div'))
+                //         mianrowf.attr('class', 'row')
+                //         var divsubsf = $(document.createElement('div'))
+                //         divsubsf.attr('class', 'col-xs-6')
+                //         var pfortime = $(document.createElement('p')).html('Time : '+value.event_start)
+                //         var pforavg = $(document.createElement('p')).html('Average cost two : '+value.average_cost_two)
+                //         var pfordays = $(document.createElement('p')).html(value.week_days)
+                //         var pforavg = $(document.createElement('p')).html('Special offers : '+value.description)
+                //         var divsubss = $(document.createElement('div'))
+                //         divsubss.attr('class', 'col-xs-6')
+                //         var img = "img/network.png";
+                //         var image = $("<img>")
+                //         image.attr('class', 'img-responsive')
+                //         image.attr('url', img)
+                //         $('#eventcontent').append(mainrowf.append(ftwel.append(eventname))).append(location.append(divaddress.append(entityname).append(address)))
+                //     })
+                // }
+
+                function displayeventdata(data){
+                    console.log(data);
+                    // displayslideshow(data);
+                    $.each(data.content, function(index, value){
+                    })
+                }
+
+                function tomorrow_list(){
+                    $('#today').css('color', '#ffffff');
+                    $('#upcoming').css('color', '#B0BF1A');
+                    $('#offer').css('color', '#ffffff');
+                    $("#listview").empty();
+                    $("#calendarview").hide();
+                    $("#eventpage").hide();
+                    var locationid = $("#location").val();
+                    $.ajax({
+                        url: 'http://192.168.1.15/mparties/index.php/api/get_tommorow_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: locationid
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            var todaydata = data;
+                            $("#listview").show();
+                            displaysortlist(todaydata);
+                        }
+                    })
+
+                }
+
+                function displaysortlist(todaydata){
+                    $("#listview").empty();
+                    $.each(todaydata, function(index, value){
+                        if(value.id == 0){
+                            var txt = $(document.createElement('h1')).html('There are no events available check for other venues or other location.');
+                            txt.attr('style', 'margin-top: 20%');
+                            $("#listview").append(txt);
+                        } else {
+                            var anchor = $(document.createElement('a'))
+                            anchor.attr('id', value.event_id)
+                            anchor.attr('onclick', 'getevents(this.id);')
+                            var mainlist = $(document.createElement('div'))
+                            mainlist.attr('class', 'listitem row')
+                            var subdiv = $(document.createElement('div'))
+                            subdiv.attr('class', 'col-xs-6');
+                            var subdi = $(document.createElement('div'))
+                            subdi.attr('class', 'col-xs-6 context');
+                            var img = "http://192.168.1.15/mparties/assets/uploads/"+value.image;
+                            var title = $(document.createElement('h1')).html(value.event_name)
+                            title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                            var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                            rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                            var category = $(document.createElement('p')).html("Category : "+value.category)
+                            category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                            var image = $("<img>")
+                            image.attr('class', 'eventlistimg')
+                            image.attr('style', 'background: url('+img+')');
+                            $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                        }                    
+                    })
+                }
+
+                function today_list(){
+                    $('#today').css('color', '#B0BF1A');
+                    $('#upcoming').css('color', '#ffffff');
+                    $('#offer').css('color', '#ffffff');
+                    $("#listview").empty();
+                    $("#calendarview").hide();
+                    $("#eventpage").hide();
+                    var locationid = $("#location").val();
+                    console.log(locationid);
+                    $.ajax({
+                        url: 'http://192.168.1.15/mparties/index.php/api/get_today_list/',
+                        type: 'post',
+                        crossDomain:true,
+                        data: {
+                            id: locationid
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            var todaydata = data;
+                            $("#listview").show();
+                            displaysortlist(todaydata);
+                        }
+                    })
+                }
+
+                function direct_to_map(){
+                    $('#mapview').css('color', '#ffffff');
+                    $('#lsview').css('color', '#aaaaaa');
+                    $("#tabnav").hide();
+                    $("#searchlocation").hide();
+                    $("#filter_id").val(0);
+                    $("#map-canvas").empty();
+                    $("#topnav").show();
+                    load_event_list();
+                }
+
+                function calendarview(){
+                    $('#today').css('color', '#ffffff');
+                    $('#upcoming').css('color', '#ffffff');
+                    $('#offer').css('color', '#B0BF1A');
+                    $('#listview').hide();
+                    $("#eventpage").hide();
+                    $('#calendarview').show();
+                    var id = $("#location").val();
+                    $.ajax({
+                       url:'http://192.168.1.15/mparties/index.php/api/special_offers/',
+                        type: 'post',
+                        data: {
+                            id: id
+                        },
+                        success: function(data){
+                            $('#listview').empty();
+                            $('#eventpage').hide();
+                            displaylist(data);
+                        }
+                    })
+                }
+
+                function go_toLogin(){
+                    $("#forgotpassword").hide();
+                    $("#login").show();
+                }
+            </script>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+
+        <script type="text/javascript">
+            $('div[data-include]').each(function() {
+                $(this).load( $(this).attr('data-include') + '.html').trigger('create');
+            });
+        </script>
+
+        <script type="text/javascript" src="https://dl.dropboxusercontent.com/u/40036711/Scripts/jquery.ddslick.min.js"></script>
+
+        <script type="text/javascript">
+                $(document).ready(function() {
+                    // window.plugins.html5Video.initialize({
+                    //     "myvideo" : "video/R3HAB%20&%20VINAI%20-%20How%20We%20Party%20(Official%20Music%20Video).mp4"
+                    // })
+                    $("#angleleft").hide();
+                    $("#header").hide();
+                    loadsearch();
+                    $("#filter_id").val(0);
+                    loadsearchopt();
+                    load_filterlist();
+                });
+
+            function displaymapview(){
+                $('#mapview').css('color', '#ffffff');
+                $('#lsview').css('color', '#aaaaaa');
+                $("#tabnav").hide();
+                $("#topnav").show();
+                $("#listview").hide();
+                $("#eventpage").hide();
+                $("#map-canvas").show();
+                $("#calendarview").hide();
+            }
+
+            function displaylistview(){
+                $('#lsview').css('color', '#ffffff');
+                $('#mapview').css('color', '#aaaaaa');
+                $('#today').css('color', '#ffffff');
+                $('#upcoming').css('color', '#ffffff');
+                $('#offer').css('color', '#ffffff');
+                $("#eventpage").hide();
+                $("#calendarview").hide();
+                $("#topnav").hide();
+                $("#map-canvas").hide();
+                $("#tabnav").show();
+                $("#listview").show();
+                $("#listview").empty();
+                var id = $("#location").val();
+               $.ajax({
+                    url:'http://192.168.1.15/mparties/index.php/api/get_entities_list_data/',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id : id
+                    },
+                    success: function(data){
+                        console.log(data);
+                        displaylist(data);
+                    }
+                })
+            }
+        </script>
+        <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/lib/moment.min.js"></script>
+        <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.min.js"></script>
+        <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
+        <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> -->
+    </body> 
+</html> 

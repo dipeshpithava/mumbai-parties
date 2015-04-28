@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<title>MUMBAI PARTIES</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.theme.min.css">
+    <link rel="stylesheet" href="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.css">
+</head>
+<body class="bg">
+<div class="loader">
+	<center>
+        <!-- <i class="fa fa-spinner"></i> -->
+	    <img src="img/loader.gif">
+	</center>
+</div>
+	<!-- Header -->
+        <div id="header" class="container pad0" style="display: none">
+            <div class="menu-header">
+                <div id="backbtn" style="width: 10%; padding: 1% 2%; float: left; display: none; color: #f1f1f1">
+                    <label onclick="searchpage();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="backmap" style="width: 10%; padding: 1% 2%; float: left; display: none; color: #f1f1f1">
+                    <label onclick="displaymapview();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="backlist" style="width: 10%; padding: 1% 2%; float: left; display: none; color: #f1f1f1">
+                    <label onclick="displaylistviewonback();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div id="backpage" style="width: 10%; padding: 1% 2%; float: left; display: none; color: #f1f1f1">
+                    <label onclick="displaybarpage();"><span class="fa fa-chevron-left fa-2x angleleft"></span></label>
+                </div>
+                <div class="headercenter col-xs-8 col-sm-8">
+					<div class="dropdown" style="padding: 4% 2%;">
+						<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">around me
+						<span class="caret"></span></button>
+						<ul id="listofplace" class="dropdown-menu" role="menu" aria-labelledby="menu1" style="background: #696969"></ul>
+					</div>
+                </div>
+                <div id="" class="col-sm-2 col-xs-2">
+                    <label style="text-align: right; margin-top: 5px;">
+                        <span id="menu_btn" class="menu_btn">
+                            <div style="background: url('img/user.jpeg') no-repeat; height: 40px; background-size: cover;width: 40px;border-radius: 50px;border: 2px #c1c1c1 solid;"></div>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="menu_sidebar">
+        	<div id="profile" class="profile">
+		    	<center>
+		    		<div class="profilepic"></div>
+		    		<h1>Bharat Sharma</h1>
+		    	</center>
+        	</div>
+        	<div class="menulist">
+<!--				<div class="menli">
+					<span class="fa fa-glass"></span><label>My Party Animals</label>
+				</div> -->
+<!-- 				<div class="menli">
+					<span class="fa fa-list-alt"></span><label>Invite Friends</label>
+				</div> -->
+<!-- 				<div class="menli">
+					<span class="fa fa-share"></span><label>Share Party Momments</label>
+				</div> -->
+<!-- 				<div class="menli">
+					<span class="fa fa-magic"></span><label>My Offers</label>
+				</div> -->
+<!-- 				<div class="menli">
+					<span class="fa fa-bell"></span><label>My Reminders</label>
+				</div> -->
+				<div class="menli">
+					<span class="fa fa-1x fa-phone-square" style="color: #00e500"></span><label onclick="makecall(9769102406);">Call Party Driver</label>
+				</div>
+				<div class="menli">
+					<span class="fa fa-1x fa-phone-square" style="color: #00e500"></span><label onclick="makecall(9769102406);">Call OLA Cab</label>
+				</div>
+				<div class="menli">
+					<span class="fa fa-1x fa-phone-square" style="color: #00e500"></span><label onclick="makecall(9769102406);">Call MERU Cab</label>
+				</div>
+				<div class="menli" style="padding-bottom: 10%">
+					<span class=""></span><label onclick="logout_user();">Sign Out</label>
+				</div>
+        	</div>
+        </div>	
+        <!-- main screen -->
+    <div id="homescreen" class="homescreen">
+        <center>
+            <div class="logincontainer">
+            <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                <div class="account-wall">
+                <div class="control-group">
+                    <button onclick="gotologin();" style="margin-bottom: 5%" class="btn btn-lg btn-block btnsn" type="submit">
+                        SIGN IN TO PARTY</button>
+                    <button onclick="facebook_login();" class="btn btn-lg btn-primary btn-block btnfb" type="submit">
+                        <i class="fa fa-facebook-official"></i> INSTANT FACEBOOK CONNECT</button>
+                    <button onclick="goto_register();" class="btn btn-lg btn-block btnup" type="submit">
+                        NEW USER SIGN UP</button>
+                    <button onclick="goto_home();" class="btn btn-lg btn-block btnlater" type="submit">
+                        I'LL SIGN UP LATER</button>
+                </div>
+                </div>
+            </div>
+        </center>
+    </div>
+	<!-- Login Page -->
+    <div id="login" class="login" style="display: none">
+        <center>
+            <div class="logincontainer">
+            <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                <div class="account-wall">
+                <div class="control-group">
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                      <input type="email" class="form-control extcss" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="email" required>
+                    </div>
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                      <input type="password" class="form-control extcss" placeholder="password" aria-describedby="basic-addon1" data-validation-required-message="Please provide your password" id="password" required>
+                    </div>
+                    <p class="help-block" style=""></p>
+                    <button onclick="return login();" class="btn btn-lg btn-block btnsn" type="submit">
+                        SIGN IN TO PARTY</button>
+                    <label class="latertxt" onclick="go_to_login();"><p>BACK TO LOGIN</p></label> 
+
+                </div>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register" class="register">
+        <center>
+            <div class="registercontainer">
+          <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                <div class="account-wall">
+                    <div class="control-group">
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                      <input type="text" class="form-control extcss" placeholder="Name" aria-describedby="basic-addon1" data-validation-required-message="Please enter your name" id="fname" required>
+                    </div>
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope txtico"></i></span>
+                      <input type="email" class="form-control extcss" placeholder="Email" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="newemail" required>
+                    </div>
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                      <input type="password" class="form-control extcss" placeholder="Password" aria-describedby="basic-addon1" data-validation-required-message="Please provide your password" id="newpassword" required>
+                    </div>
+                     <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock txtico"></i></span>
+                      <input type="password" class="form-control extcss" placeholder="Confirm Password" aria-describedby="basic-addon1" data-validation-required-message="Please confirm your password" id="newcpassword" required>
+                    </div>
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar-o txtico"></i></span>
+                      <input type="tel" class="form-control extcss" placeholder="Age" aria-describedby="basic-addon1" data-validation-required-message="Please enter your Age" id="age" required>
+                    </div>
+                    <div class="input-group regform">
+                        <span class="input-group-addon" style="padding: 0px 12px !important">
+                            <input type="radio" id="male" value="male" name="gender"><br>
+                            <input type="radio" id="female" value="female" name="gender">
+                        </span>
+                        <input type="text" class="form-control extcss" value="Male" disabled>
+                        <input type="text" class="form-control extcss" value="Female" disabled>
+                    </div>
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone txtico"></i></span>
+                      <input type="tel" class="form-control extcss" placeholder="Phone Number" aria-describedby="basic-addon1" data-validation-required-message="Please enter your Phone Number" id="tel" required>
+                    </div>
+                    <p class="help-block" style=""></p>
+                    <button onclick="return submit_data();" class="btn btn-lg btn-block btnsn" type="submit">
+                        SIGN UP</button>
+                </div>
+                <label class="latertxt" onclick="go_to_login();"><p>BACK TO LOGIN</p></label> 
+                    </div>
+            </div>
+            </div>
+        </center>
+    </div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgotpassword" class="forgotpassword">
+        <center>
+            <div class="logincontainer">
+            <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>
+                <div class="account-wall">
+                <div class="control-group">
+                    <div class="input-group regform">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user txtico"></i></span>
+                      <input type="email" class="form-control" placeholder="username" aria-describedby="basic-addon1" data-validation-required-message="Please enter your email" id="emailid" required>
+                    </div>
+                    <p class="help-block" style=""></p>
+                    <button onclick="forgot_password();" class="btn btn-lg btn-block btnsn" type="submit">
+                        CHANGE PASSWORD</button>
+                </div>
+                <label class="latertxt" onclick="go_to_login();"><p>BACK TO LOGIN</p></label> 
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <!-- Search Location Page -->
+    <div id="searchlocation" class="searchlocation">
+        <center>
+            <div class="logo"><img src="/img/logo.png" class="img-reponsive" style="width: 50%"></div>            
+            <div class="locationcon">
+                    <!-- <h1>WHAT's <br> HAPPENING</h1> -->
+                <div class="searchbar">
+                    <div id="divlocation" style="width: 260px; border-image: url('img/bottomline.png') 0 0 30 0 !important; border-bottom: 5px !important;">
+                    </div>
+                </div>
+                <h3 id="exit" class="" style="margin: 80% 0 0 40% !important; color: #f1f1f1 !important">Exit App</h3>
+            </div>
+        </center>
+    </div>
+
+    <!-- Map And List Page -->
+    <div id="eventlist" class="map-view" style="display: none">
+        <section class="page">
+            <div id="filternav">
+                <div id="topnavmap" class="">
+                    <div class="containernav">
+                        <div id="nav-example" class="owl-carousel" style="color:#fff;">
+                              <div class="nav-name party"><label id="0" onclick="direct_to_map();">Party World</label></div>
+                              <div class="nav-name happy"><label id="2" onclick="filterlocation2(this.id);">Happy Hours</label></div>
+                              <div class="nav-name karaoke"><label id="1" onclick="filterlocation1(this.id);">Karaoke</label></div>
+                              <div class="nav-name liquor"><label id="9" onclick="getliquor();">Liquor Shops</label></div>
+                              <div class="nav-name lnight"><label id="3" onclick="filterlocation3(this.id);">Ladies Night</label></div>
+                              <div class="nav-name seve"><label id="4" onclick="filterlocation4(this.id);">Special Events</label></div>
+                              <div class="nav-name crick"><label id="5" onclick="filterlocation5(this.id);">Cricket Events</label></div>
+                              <div class="nav-name footb"><label id="6" onclick="filterlocation6(this.id);">Football Events</label></div>
+                        </div>
+                    </div><!--conatinernav-->
+                </div>
+            </div>
+            <div id="tabnav" class="tabnav">
+                <label id="today" onclick="today_list();" class="tabpad">TODAY</label>
+                <label id="upcoming" onclick="upcoming_list();" class="tabpad">UPCOMING</label>
+                <label id="offer" class="tabpad" onclick="offers();">OFFERS</label>
+                <label id="liquor" class="tabpad" onclick="liquor();">LIQUOR</label>
+            </div>
+            <div id="calendarlbl" class="calendarlbl">
+            	<center><label onclick="showcalender();"><i class="fa fa-2x fa-calendar"></i> CALENDAR</label></center>
+            </div>
+            <div id="map-canvas" class="mapdisp"></div>
+            <div id="listview" class="container" style="padding-top: 10%; margin-bottom: 10%; background: #151515"></div>
+		    <div id="bottomnav" class="bottomnav">
+		        <div class="firstnav" style="border-right: #f1f1f1 solid 2px"><label id="mapview" onclick="displaymapview();">MAP VIEW</label></div>
+		        <div class="firstnav"><label id="lsview" onclick="displaylistview();">LIST VIEW</label></div>
+		    </div>
+        </section>
+    </div>
+
+    <!-- Entiy And Event Info Page -->
+	<section id="eventpage" class="eventpage">
+	    <div id="eventcontent" class="eventcontent">
+	    </div>
+	    <div class="acco-sec">
+	        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	            <div id="menuslide" class="panel panel-default slidep" style="display: none">
+	                <a id="menuanc" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	                    <div class="panel-heading" role="tab" id="headingOne" onclick="togglemenu();">
+	                        <div class="row">
+	                            <div class="col-xs-10">
+	                                <h4 class="panel-title" style="color: #f1f1f1;">Menu</h4>
+	                            </div>
+	                            <div class="col-xs-2">
+	                                <span class="acco-plus"><i class="fa fa-plus"></i></span>
+	                            </div>
+	                        </div>
+	                        <!--end row-->
+	                    </div>
+	                </a>
+	                <div id="collapseOne" class="panelsl panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+	                    <div class="panel-body">
+	                        <div id="menuimgs" style="margin-top: 5%">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div id="eventslide" class="panel panel-default slidep" style="display: none">
+	                <a id="eventanc" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	                    <div class="panel-heading" role="tab" id="headingTwo" onclick="toggleevent();">
+	                        <div class="row">
+	                            <div class="col-xs-10">
+	                                <h4 class="panel-title" style="color: #f1f1f1;">Events</h4>
+	                            </div>
+	                            <div class="col-xs-2">
+	                                <span class="acco-plus"><i class="fa fa-plus"></i></span>
+	                            </div>
+	                        </div>
+	                        <!--end row-->
+	                    </div>
+	                </a>
+	                <div id="collapseTwo" class="panelsl panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+	                    <div class="panel-body">
+	                        <div id="eventlisting" class="eventlisting">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div id="offerslide" class="panel panel-default slidep" style="display: none">
+	                <a id="offeranc" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	                    <div class="panel-heading" role="tab" id="headingThree" onclick="toggleoffer();">
+	                        <div class="row">
+	                            <div class="col-xs-10">
+	                                <h4 class="panel-title" style="color: #f1f1f1;">Offers</h4>
+	                            </div>
+	                            <div class="col-xs-2">
+	                                <span class="acco-plus"><i class="fa fa-plus"></i></span>
+	                            </div>
+	                        </div>
+	                        <!--end row-->
+	                    </div>
+	                </a>
+	                <div id="collapseThree" class="panelsl panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+	                    <div class="panel-body">
+	                        <div id="offerlisting" class="offerlisting">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!--acco-sec-->
+	    <!--         <h1 id="menuimgshead" style="color: #fff; padding: 10px 0 0 10px">Menu</h1>
+	        <div id="menuimgs" style="margin-top: 5%">
+	        </div>
+	        <label id="addmenu" class="addmenu" style="padding: 10px 0 10px 48%; color: #f1f1f1"><span class="fa fa-2x fa-plus"></span></label> -->
+
+	    <!--             <h1 style="color: #fff; padding: 10px 0 0 10px">Event Images</h1>
+	        <div id="owl-demo" class="owl-carousel owl-theme">
+	        </div> -->
+	</section>
+
+    <!-- Calendar View -->
+    <div id="calendarouter">
+	    <div id="calendarview" class="calendarview"></div>
+    </div>
+	<div id="directionpage" class="directionpage">
+		<center>
+		    <img src="http://casaestilo.in/mumbai_parties/mumbai_parties/www/img/preloader.gif">
+		</center>
+	</div>
+    <!-- Hidden Fields -->
+    <input type="hidden" id="location" name="location">
+    <input type="hidden" id="pageid" name="pageid">    
+    <input type="hidden" id="latitute" name="latitute">
+    <input type="hidden" id="longitute" name="longitute">
+    <input type="hidden" id="filter_id" name="filter_id">
+    <input type="hidden" id="locationname" name="locationname">
+    <input type="hidden" id="idc" name="idc">
+    <input type="hidden" id="zoom" name="zoom">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/scroll.js"></script>
+    <script type="text/javascript" src="http://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false" type="text/javascript"></script>
+    <!-- // <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script> -->
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
+    <script src="js/openfb.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+            loadsearch();
+            loadsearchopt();
+
+            smoothScroll.init({
+                speed: 1000,
+                easing: 'easeInOutCubic',
+                offset: 0,
+                updateURL: true,
+                callbackBefore: function ( toggle, anchor ) {},
+                callbackAfter: function ( toggle, anchor ) {}
+            });
+
+             $("#nav-example").owlCarousel({
+                items:4,
+                pagination:false,
+                navigation : false,
+                temsDesktop:[1199,5],
+                itemsDesktopSmall:[979,5],
+                itemsTablet:[768,3.5],
+                itemsMobile:[450,2.5],
+            });   
+
+            $(function(){
+                var menuWidth=0;
+                $('.wrapper a').map(function(){
+                    menuWidth = menuWidth + $(this).outerWidth(true);
+                });
+                $('.wrapper').css('width', (menuWidth+15)); 
+            });
+
+            $('.directionpage').fadeOut(10000);
+            setTimeout(function(){
+	            $('#homescreen').fadeIn();
+            }, 9000);
+	    })
+		
+		$('#exit').click(function(){
+            // navigator.device.exitApp();
+			navigator.app.exitApp();
+		})
+
+        // openFB.init({appId: '908572929213032'});
+        openFB.init('908572929213032', 'https://www.facebook.com/connect/login_success.html', window.localStorage);
+
+        function facebook_login(){
+            openFB.login('email',
+                function() {
+                    get_info();
+                },
+                function() {
+                    alert('Facebook login failed');
+                }
+            );
+        }
+
+        function get_info(){
+            openFB.api({
+                path: '/me',
+                success: function(data){
+                    $('#login, #homescreen').hide();
+                    // add_user(data);
+                    display_account(data);
+                    $('#searchlocation').show();
+                },
+                error: function(response){
+                	alert('Not able to access data');
+                }
+            });
+        }
+
+        function logout_user(){
+            openFB.logout(
+                function(){
+                    alert('Logout successfully');
+                },
+                function(){
+                    alert('Unable to download');
+                }
+            );
+        }
+
+		var map;
+		var directionsDisplay;
+		var directionsService = new google.maps.DirectionsService();
+		var pos;
+		var lat, lon;
+        var MY_MAPTYPE_ID = 'mumbai_parties';
+
+		function initialize_direct(latitute, longitute){
+            var addressLongLat = latitute+','+longitute;
+            //window.open('comgooglemaps://?saddr=19.164844,72.849517&daddr=19.119677,72.905081','_system');
+            window.open('google.navigation:q='+addressLongLat,'_system');
+	  //       directionsDisplay = new google.maps.DirectionsRenderer();
+	  //       var mapOptions = {
+	  //           zoom: 13,
+	  //       };
+
+			// if(navigator.geolocation) {
+			//     navigator.geolocation.getCurrentPosition(function(position) {
+			//     lat = parseFloat(position.coords.latitude);
+			//     lon = parseFloat(position.coords.longitude);
+
+			//     pos = new google.maps.LatLng(lat, lon);
+   //              var start = new google.maps.LatLng(lat, lon);
+   //              var end = new google.maps.LatLng(latitute, longitute);
+
+   //              map = new google.maps.Map(document.getElementById('directionpage'), mapOptions);
+   //              directionsDisplay.setMap(map);
+
+   //              directionsService.route(request, function(response, status) {
+   //                  if (status == google.maps.DirectionsStatus.OK) {
+   //                      directionsDisplay.setDirections(response);
+   //                  }
+   //              });
+
+			//     map.setCenter(pos);
+	  //     		    }, function() {
+			//    			handleNoGeolocation(true);
+		 //    	});
+		 //  	} else {
+		 //    	handleNoGeolocation(false);
+		 //  	}
+		}
+
+		function handleNoGeolocation(errorFlag){
+			if (errorFlag) {
+				var content = 'Error: The Geolocation service failed.';
+			} else {
+				var content = 'Error: Your browser doesn\'t support geolocation.';
+			}
+		}
+	    function makecall(no){
+	    	window.open('tel:'+no, '_system');
+	    }
+
+        function display_account(data){
+            $('#profile').empty();
+            $('#menu_btn').empty();
+            var imgurl = 'graph.facebook.com/'+data.id+'/picture?type=large';
+            var center = $(document.createElement('center'))
+            var profilediv = $(document.createElement('div'))
+            profilediv.attr('class', 'profilepic')
+            profilediv.attr('style', 'background: url(http://graph.facebook.com/'+data.id+'/picture?type=large); border-radius: 100px; border: 5px solid #3f3f3f; height: 150px; width: 150px; background-size: cover; margin-top: 10%;')
+            var name = $(document.createElement('h1')).html(data.name)
+            $('#profile').append(center.append(profilediv).append(name))
+
+            var menu = $(document.createElement('div'))
+            menu.attr('style', 'background: url(http://graph.facebook.com/'+data.id+'/picture) no-repeat; height: 40px; background-size: cover;width: 40px;border-radius: 50px;border: 2px #c1c1c1 solid;')
+            $('#menu_btn').append(menu);
+        }
+
+		function goto_register(){
+			$('#homescreen').hide();
+			$('#register').show();
+		}
+
+		function go_to_login(){
+			$('#forgotpassword, #register, #login').hide();
+			$('#homescreen').show();
+		}
+
+        function gotologin(){
+            $('#homescreen').hide();
+            $('#login').show();
+        }
+
+		function goto_home(){
+			$('#homescreen').hide();
+			$('#searchlocation').show();
+		}
+
+		function forgotpass(){
+			$('#login').hide();
+			$('#forgotpassword').show();
+		}
+
+        function searchpage(){
+            $('#eventlist, #header, #calendarlbl, #calendarouter').hide();
+            $('#searchlocation').show();
+            $('.menu_sidebar').hide();
+            $('#zomm').val(0);
+            $('#latitute').val(0);
+            $('#longitute').val(0);
+        }
+
+        function showcalender(){
+        	$('#listview').hide();
+        }
+
+
+        // Email validation
+        function validateEmail(email){
+	        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            if (reg.test(email.value) == false) {
+                alert('Invalid Email Address');
+                return false;
+            } return true;
+        }
+
+        // function add_user(data){
+        //     var name = data.name;
+        //     var email = data.email;
+        //     var username = data.id;
+        //     var gender = data.gender;
+        //     var image = 'http://graph.facebook.com/'+data.id+'/picture'
+        //     $.ajax({
+        //         url:'http://mumbaiparties.com/index.php/api/add_user/',
+        //         type: 'post',
+        //         data: {
+        //             username: username,
+        //             first_name: name,
+        //             email: email,
+        //             gender: gender,
+        //             image: image,
+        //         },
+        //         success: function(data){
+        //             // display_account(data);
+        //             $('#searchlocation').show();
+        //         }
+        //     })
+        // }
+
+        // Login
+        function login(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            if(reg.test(email) != false && password != null){
+                $.ajax({
+                   url:'http://mumbaiparties.com/index.php/api/login_user/',
+                    type: 'post',
+                    data: {
+                        username: email,
+                        password: password,
+                    },
+                    success: function(data){
+                        $.each(data, function(index, value){
+                            if (value.id == 0){
+                                alert('Please check the username/password you have entered')
+                            } else {
+                                $('#login').hide();
+                            }
+                        })
+                    }
+                })
+            } else { alert('Fill all the fields properly.') }
+        }
+        // End of Login
+
+        //Register
+        function submit_data(){
+            var fname = document.getElementById('fname').value;
+            var email = document.getElementById('newemail').value;
+            var password = document.getElementById('newpassword').value;
+            var cpassword = document.getElementById('newcpassword').value;
+            var tel = document.getElementById('tel').value;
+            var age = document.getElementById('age').value;
+            var none;
+            if(document.getElementById('male').checked == true){
+                gndr = "Male";
+            } else if(document.getElementById('female').checked == true){
+                gndr = "Female";
+            }
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            if(reg.test(email) != false && fname != null && password != null && tel != null){
+                if(password == cpassword){
+                    $.ajax({
+                       url:'http://mumbaiparties.com/index.php/api/register_user/',
+                        type: 'post',
+                        data: {
+                            email: email,
+                            password: password,
+                            fname: fname,
+                            tel: tel,
+                            age: age,
+                            gndr: gndr,
+                        },
+                        success: function(data){
+                            $('#register').hide();
+                            $('#searchlocation').show();
+                        }
+                    })
+                } else { alert('Confirm Password does not match') }
+            } else { alert('Fill all the fields') }
+        }
+        // End of Register
+
+        //Forgot Password
+        function forgot_password(){
+            var email = document.getElementById('emailid').value;
+            $("#idc").val(email);
+            console.log(email);
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            if(reg.test(email) != false){
+                $.ajax({
+                   url:'http://mumbaiparties.com/index.php/api/forgot_password/',
+                    type: 'post',
+                    data: {
+                        username: email,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        $.each(data, function(index, value){
+                            if (value.id == 0){
+                                alert('Username does not exists')
+                            } else {
+                                alert('You will get your new password on you email soon.');
+                                go_to_login();
+                            }
+                        })
+                    }
+                })
+            } else { alert('Fill all the fields properly.'); }
+        }
+
+        //Search Location
+        function loadsearch(){
+            $('#location').val(0);
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_Event_palce/',
+                type: 'post',
+                crossDomain:true,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data){
+                    $('#divlocation').ddslick({
+                        data: data,
+                        selectText: "Select Location",
+                        onSelected: function(data){
+	                    	console.log(data.selectedData.text);
+	                        $('#filter_id').val(0);
+	                        $('#location').val(data.selectedData.value);
+							$("#menu1").text(data.selectedData.text);
+							$("#menu1").val(data.selectedData.value);
+	                        direct_to_map();
+                        } 
+                    });
+                }
+            })
+        }
+        // // End of Search Location
+
+        //Header Search By Location
+        function loadsearchopt(){
+
+            $("#location").val(0);
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_Event_palce/',
+                type: 'post',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                crossDomain:true,
+                success: function(data){
+	                $.each(data, function(index, value){
+	                	var listi = $(document.createElement('li'))
+	                	listi.attr('style', 'padding: 5% 2% !important')
+	                	listi.attr('role', 'presentation')
+	                	var labeltxt = $(document.createElement('label')).html(value.text)
+	                	labeltxt.attr('style', 'color: #f1f1f1 !important')
+	                	labeltxt.attr('onclick', 'getlist('+value.value+',"'+value.text+'");')
+	                	labeltxt.attr('role', 'menuitem')
+	                	labeltxt.attr('tabindex', '1')
+	                	$('#listofplace').append(listi.append(labeltxt));
+	                })
+                }
+            })
+        }
+        // End of Header Search
+
+        function getlist(val,txt){
+        	$('#location').val(val);
+        	$('#menu1').text(0);
+        	$('#menu1').text(txt);
+        	direct_to_map();
+        }
+
+        //Load Filters list
+        // function load_filterlist(){
+        //     $.ajax({
+        //         url:'http://mumbaiparties.com/index.php/api/get_filters/',
+        //         type: 'post',
+        //         crossDomain:true,
+        //         success: function(data){
+        //             $.each(data, function(index, value){
+        //                 var lbl = $(document.createElement('label')).html(value.name)
+        //                 lbl.attr('class', 'toppad')
+        //                 lbl.attr('id', value.id)
+        //                 lbl.attr('onclick', 'filterlocation(this.id);')
+        //                 $('#topnavmap').append(lbl);
+        //             })
+        //         }
+        //     })
+        // }
+        //End Load Filters list
+
+        function displaymapview(){
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.party').css('border-bottom', '#66CD00 5px solid');
+            $('.party').css('color', '#66CD00');
+            $('#mapview').css('color', '#00BFFF');
+            $('#lsview').css('color', '#aaaaaa');
+            $('.menu_sidebar').hide();
+            $('#map-canvas, #eventcontent, #menuimgs, #owl-demo, #eventlisting, #offerlisting').empty();
+            $('#tabnav, #listview, #eventpage, #backmap, #calendarlbl, #menuslide, #eventslide, #offerslide').hide();
+            $('#topnavmap, #map-canvas, #backbtn, #eventlist, #menuimgshead').show();
+            load_event_list();
+        }        
+
+
+        //Map display
+        function direct_to_map(){
+            $('.loader').fadeIn();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.party').css('border-bottom', '#66CD00 5px solid');
+            $('.party').css('color', '#66CD00');
+        	$('#searchlocation, #tabnav, #eventpage, #calendarlbl').hide();
+        	$('#mapview').css('color', '#00BFFF');
+        	$('#lsview').css('color', '#aaaaaa');
+            $('#filter_id').val(0);
+            $('#map-canvas, #listview, #eventcontent, #menuimgs, #owl-demo').empty();
+            $('#header, #searchloc, #topnavmap, #eventlist, #bottomnav, #backbtn').show();
+            load_event_list();
+        }
+
+        function load_event_list(){
+            var id = $("#location").val();
+            if (id == 0) {
+                alert('Select Option.');
+            } else {
+                $.ajax({
+                    url: 'http://mumbaiparties.com/index.php/api/getlatlog',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id: id
+                    },
+                    crossDomain: true,
+                    success: function(data){
+                        $.each(data, function(index, value){
+                            $("#latitute").val(value.latitude);
+                            $("#longitute").val(value.longitude);
+                            $("#zoom").val(value.zoom);
+                        })
+                    initialize(id);
+                    }
+                })
+            }
+        }
+
+        //Map display nad plot markers
+        var map;
+        var image;
+        var marker, i;
+        var MY_MAPTYPE_ID = 'mumbai_parties';
+
+        function initialize(id){
+            var lat = $("#latitute").val();
+            var lon = $("#longitute").val();
+            var zm = $("#zoom").val();
+            var zoomd = parseInt(zm);
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: zoomd,
+                center: new google.maps.LatLng(lat, lon),
+                mapTypeControlOptions: {
+                      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                    },
+                    mapTypeId: MY_MAPTYPE_ID
+            });
+
+            var styles = [
+                {
+                featureType: 'all',
+                elementType: 'all',
+                  stylers: [
+                    { hue: '#0800ff' },
+                    { invert_lightness: 'true' },
+                    { saturation: -100 }
+                  ]
+                },
+                {
+                featureType: 'administrative.locality',
+                elementType: 'all',
+                  stylers: [
+                    { visibility: 'off' }
+                  ]
+                }
+            ];
+
+            var styledMapOptions = {
+                name: 'Mumbai Parties'
+            };
+
+            var customMapType = new google.maps.StyledMapType(styles, styledMapOptions);
+
+            map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_entities_list/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    $.each(data, function(index, value){
+                        var v = value.latitude;
+                        var s = value.longitude;
+                        var bar = value.entity_name;
+                        console.log(v+' '+s);
+                        var eventtype = $('#filter_id').val();
+                        image = value.marker;
+                        marker = new MarkerWithLabel({
+                            position: new google.maps.LatLng(v, s),
+                            map: map,
+                            icon: image,
+                            labelContent: bar,
+                            labelAnchor: new google.maps.Point(-10, 20),
+                            labelClass: value.css,
+                            labelInBackground: false
+                        })
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                                geteventsbyentity(value.id);
+                            }
+                        })(marker));
+                    })
+                    $("#map-canvas").show();
+                }
+            })
+            $('.loader').fadeOut();
+        }
+        // Enf of Map View and Plooting function
+
+        function getliquor(){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.liquor').css('border-bottom', '#c2c2c2 5px solid');
+            $('.liquor').css('color', '#c2c2c2');
+            $('#map-canvas').empty();
+            load_liquor_list();
+        }
+        //filters map view
+
+        function filterlocation1(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.karaoke').css('border-bottom', '#FDCE3D 5px solid');
+            $('.karaoke').css('color', '#FDCE3D');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function filterlocation2(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.happy').css('border-bottom', '#FC9540 5px solid');
+            $('.happy').css('color', '#FC9540');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function filterlocation3(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.lnight').css('border-bottom', '#FA0D83 5px solid');
+            $('.lnight').css('color', '#FA0D83');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function filterlocation4(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.seve').css('border-bottom', '#24B0A3 5px solid');
+            $('.seve').css('color', '#24B0A3');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function filterlocation5(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.crick').css('border-bottom', '#6898E8 5px solid');
+            $('.crick').css('color', '#6898E8');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function filterlocation6(id){
+            var location = $("#location").val();
+            $('.nav-name').css('border-bottom', 'none');
+            $('.nav-name').css('color', '#f1f1f1');
+            $('.footb').css('border-bottom', '#6898E8 5px solid');
+            $('.footb').css('color', '#6898E8');
+            $('#map-canvas').empty();
+            $('#filter_id').val(id);
+            load_event_filter_list();
+        }
+
+        function load_event_filter_list(){
+            var id = $("#location").val();
+            if (id == 0) {
+                alert('Select Option.');
+            } else {
+                $('#searchlocation').hide();
+                $("#eventpage").hide();
+                $('#listview').empty();
+                $("#calendarview").hide();
+                $('#eventlist').show();
+                $("#bottomnav").show();
+                $.ajax({
+                    url: 'http://mumbaiparties.com/index.php/api/getlatlog',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id: id
+                    },
+                    crossDomain: true,
+                    success: function(data){
+                        $.each(data, function(index, value){
+                            $("#latitute").val(value.latitude);
+                            $("#longitute").val(value.longitude);
+                            $("#zoom").val(value.zoom);
+                        })
+                    initialize_filter(id);
+                    }
+                })
+            }
+        }
+
+        function load_liquor_list(){
+            var id = $("#location").val();
+            if (id == 0) {
+                alert('Select Option.');
+            } else {
+                $('#searchlocation').hide();
+                $("#eventpage").hide();
+                $('#listview').empty();
+                $("#calendarview").hide();
+                $('#eventlist').show();
+                $("#bottomnav").show();
+                $.ajax({
+                    url: 'http://mumbaiparties.com/index.php/api/getlatlog',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id: id
+                    },
+                    crossDomain: true,
+                    success: function(data){
+                        $.each(data, function(index, value){
+                            $("#latitute").val(value.latitude);
+                            $("#longitute").val(value.longitude);
+                            $("#zoom").val(value.zoom);
+                        })
+                    initialize_liquor(id);
+                    }
+                })
+            }
+        }
+
+        function initialize_liquor(id){
+            var lat = $("#latitute").val();
+            var lon = $("#longitute").val();
+            var zm = $("#zoom").val();
+            var zoomd = parseInt(zm);
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: zoomd,
+                center: new google.maps.LatLng(lat, lon),
+                mapTypeControlOptions: {
+                      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                    },
+                    mapTypeId: MY_MAPTYPE_ID
+            });
+
+            var styles = [
+                {
+                featureType: 'all',
+                elementType: 'all',
+                  stylers: [
+                    { hue: '#0800ff' },
+                    { invert_lightness: 'true' },
+                    { saturation: -100 }
+                  ]
+                },
+                {
+                featureType: 'administrative.locality',
+                elementType: 'all',
+                  stylers: [
+                    { visibility: 'off' }
+                  ]
+                }
+            ];
+
+            var styledMapOptions = {
+                name: 'Mumbai Parties'
+            };
+
+            var customMapType = new google.maps.StyledMapType(styles, styledMapOptions);
+
+            map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+            console.log(id);
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_liquor_list/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    $.each(data, function(index, value){
+                        var v = value.latitude;
+                        var s = value.longitude;
+                        var bar = value.entity_name;
+                        console.log(v+' '+s);
+                        var eventtype = $('#filter_id').val();
+                        image = value.marker;
+                        marker = new MarkerWithLabel({
+                            position: new google.maps.LatLng(v, s),
+                            map: map,
+                            icon: image,
+                            labelContent: bar,
+                            labelAnchor: new google.maps.Point(-10, 20),
+                            labelClass: "labels",
+                            labelInBackground: false
+                        })
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                                getliquorinfomap(value.id);
+                            }
+                        })(marker));
+                    })
+                    $("#map-canvas").show();
+                }
+            })
+        }
+
+        function initialize_filter(id){
+            console.log(id);
+            var filter = $('#filter_id').val();
+            console.log(filter);
+            var lat = $("#latitute").val();
+            var lon = $("#longitute").val();
+            var zm = $("#zoom").val();
+            var zoomd = parseInt(zm);
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: zoomd,
+                center: new google.maps.LatLng(lat, lon),
+                mapTypeControlOptions: {
+                      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+                    },
+                    mapTypeId: MY_MAPTYPE_ID
+            });
+
+            var styles = [
+                {
+                featureType: 'all',
+                elementType: 'all',
+                  stylers: [
+                    { hue: '#0800ff' },
+                    { invert_lightness: 'true' },
+                    { saturation: -100 }
+                  ]
+                },
+                {
+                featureType: 'administrative.locality',
+                elementType: 'all',
+                  stylers: [
+                    { visibility: 'off' }
+                  ]
+                }
+            ];
+
+            var styledMapOptions = {
+                name: 'Mumbai Parties'
+            };
+
+            var customMapType = new google.maps.StyledMapType(styles, styledMapOptions);
+
+            map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+            console.log(id);
+            if(filter == 7){
+                $.ajax({
+                    url:'http://mumbaiparties.com/index.php/api/get_filteroffer_entities_list/',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id : id,
+                        filter : filter,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        $.each(data, function(index, value){
+                            var image = 'http://mumbaiparties.com/assets/uploads/'+value.marker;
+                            var css = value.css;
+                            var v = value.latitude;
+                            var s = value.longitude;
+                            var bar = value.entity_name;
+                            console.log(v+' '+s);
+                            var eventtype = $('#filter_id').val();
+                            image = image;
+                            marker = new MarkerWithLabel({
+                                position: new google.maps.LatLng(v, s),
+                                map: map,
+                                icon: image,
+                                labelContent: bar,
+                                labelAnchor: new google.maps.Point(-10, 20),
+                                labelClass: css,
+                                labelInBackground: false,
+                                disableDefaultUI: true
+                            })
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function() {
+                                    geteventsbyentity(value.id);
+                                }
+                            })(marker));
+                        })
+                        $("#map-canvas").show();
+                    }
+                })
+            } else {
+                $.ajax({
+                    url:'http://mumbaiparties.com/index.php/api/get_filter_entities_list/',
+                    type: 'post',
+                    crossDomain:true,
+                    data: {
+                        id : id,
+                        filter : filter,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        $.each(data, function(index, value){
+                            var image = 'http://mumbaiparties.com/assets/uploads/'+value.marker;
+                            var css = value.css;
+                            var v = value.latitude;
+                            var s = value.longitude;
+                            var bar = value.entity_name;
+                            console.log(v+' '+s);
+                            var eventtype = $('#filter_id').val();
+                            image = image;
+                            marker = new MarkerWithLabel({
+                                position: new google.maps.LatLng(v, s),
+                                map: map,
+                                icon: image,
+                                labelContent: bar,
+                                labelAnchor: new google.maps.Point(-10, 20),
+                                labelClass: css,
+                                labelInBackground: false,
+                                disableDefaultUI: true
+                            })
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function() {
+                                    geteventsbyoffer(value.id);
+                                }
+                            })(marker));
+                        })
+                        $("#map-canvas").show();
+                    }
+                })
+            }
+        }
+
+        function geteventsbyentity(id){
+            $('.loader').fadeIn();
+            $('#eventlist, #map-canvas, #backbtn, #backlist, #topnavmap').hide();
+            $('#eventpage, #backmap').show();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_events_by_entity/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayeventslist(data.events);
+                    displayoffers(data.offer);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function geteventsbyoffer(id){
+            $('.loader').fadeIn();
+            $('#eventlist, #map-canvas, #backbtn, #backlist, #topnavmap').hide();
+            $('#eventpage, #backmap').show();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_events/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function displaylistviewonback(){
+            $('#searchlocation, #tabnav, #eventpage, #map-canvas, #eventpage, #topnavmap, #calendarlbl, #backlist').hide();
+            $('#filter_id').val(0);
+            $('.menu_sidebar, #menuslide, #eventslide, #offerslide').hide();
+            $('#map-canvas, #eventcontent, #menuimgs, #owl-demo, #eventlisting, #offerlisting').empty();
+            $('#header, #searchloc, #eventlist, #bottomnav, #backbtn, #listview, #tabnav, #menuimgshead').show();
+            $('#lsview').css('color', '#00BFFF');
+            $('#mapview').css('color', '#aaaaaa');
+            $('.loader').fadeOut(4000);
+        }
+
+
+	    function displaylistview(){
+            $('.loader').fadeIn();
+            $('#searchlocation, #tabnav, #eventpage, #map-canvas, #eventpage, #topnavmap, #calendarlbl, #backlist').hide();
+            $('#filter_id').val(0);
+            $('.menu_sidebar').hide();
+            $('#map-canvas, #listview, #eventcontent, #menuimgs, #owl-demo, #listview, #eventlisting, #offerlisting').empty();
+            $('#header, #searchloc, #eventlist, #bottomnav, #backbtn, #listview, #tabnav, #menuimgshead').show();
+	        $('#lsview').css('color', '#00BFFF');
+	        $('#mapview').css('color', '#aaaaaa');
+	        $('#today').css('color', 'rgb(67, 142, 174)');
+	        $('#upcoming').css('color', '#ffffff');
+	        $('#offer').css('color', '#ffffff');
+	        $('#liquor').css('color', '#ffffff');
+	        var id = $("#location").val();
+	       $.ajax({
+	            url:'http://mumbaiparties.com/index.php/api/get_today_list_data/',
+	            type: 'post',
+	            crossDomain:true,
+	            data: {
+	                id : id
+	            },
+	            success: function(data){
+	                console.log(data);
+	                displaylist(data);
+	            }
+	        })
+            $('.loader').fadeOut(5000);
+	    }
+
+        function displayeventslist(data){
+            var data = data[0];
+            console.log(data);
+            $.each(data, function(index, value){
+                if(value.id == 0){
+                    var cont = $(document.createElement('h4')).html('There are no offers available, try out another')
+                    cont.attr('style', 'width: 100%; background: #151515; color: #f1f1f1; font-size: 1.2em; padding: 13% 14% 6%; text-align: center;')
+                    $('#eventlisting').append(cont);
+                } else {
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('id', value.id)
+                    anchor.attr('onclick', 'geteventfromlist(this.id,'+value.event_id+');')
+                    var mainlist = $(document.createElement('div'))
+                    mainlist.attr('class', 'listitem row')
+                    var subdiv = $(document.createElement('div'))
+                    subdiv.attr('class', 'col-xs-6');
+                    var subdi = $(document.createElement('div'))
+                    subdi.attr('class', 'col-xs-6 context');
+                    var img = "http://mumbaiparties.com/assets/uploads/thumb__"+value.image;
+                    var title = $(document.createElement('h1')).html(value.event_name)
+                    title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                    var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                    var category = $(document.createElement('p')).html(value.event_start+" to "+value.event_end)
+                    rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                    category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                    var image = $("<img>")
+                    image.attr('class', 'eventlistimg')
+                    image.attr('style', 'background: url('+img+')');
+                    $('#eventlisting').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                }
+            })
+			$('#eventslide').show();
+        }
+
+        function displayoffers(data){
+            var data = data[0];
+            console.log(data);
+            $.each(data, function(index, value){
+                if(value.id == 0){
+                    var cont = $(document.createElement('h4')).html('There are no offers available, try out another')
+                    cont.attr('style', 'width: 100%; background: #151515; color: #f1f1f1; font-size: 1.2em; padding: 13% 14% 6%; text-align: center;')
+                    $('#offerlisting').append(cont);
+                } else {
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('id', value.id)
+                    anchor.attr('onclick', 'getofferfromlist(this.id,'+value.offer_id+');')
+                    var mainlist = $(document.createElement('div'))
+                    mainlist.attr('class', 'listitem row')
+                    var subdiv = $(document.createElement('div'))
+                    subdiv.attr('class', 'col-xs-6');
+                    var subdi = $(document.createElement('div'))
+                    subdi.attr('class', 'col-xs-6 context');
+                    var img = "http://mumbaiparties.com/assets/uploads/thumb__"+value.image;
+                    var title = $(document.createElement('h1')).html(value.event_name)
+                    title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                    var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                    var category = $(document.createElement('p')).html(value.event_start+" to "+value.event_end)
+                    rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                    category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                    var image = $("<img>")
+                    image.attr('class', 'eventlistimg')
+                    image.attr('style', 'background: url('+img+')');
+                    $('#offerlisting').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                }
+            })
+			$('#offerslide').show();
+        }
+
+        function displayofferslist(data){
+            $('#listview').show();
+            console.log(data);
+            $.each(data, function(index, value){
+                console.log(value.id);
+                if(value.id == 0){
+                    var cont = $(document.createElement('h4')).html('There are no offers available, try out another')
+                    cont.attr('style', 'width: 100%; background: #151515; color: #f1f1f1; font-size: 1.2em; padding: 13% 14% 6%; text-align: center;')
+                    $('#listview').append(cont);
+                } else {
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('id', value.id)
+                    anchor.attr('onclick', 'getoffers(this.id);')
+                    var mainlist = $(document.createElement('div'))
+                    mainlist.attr('class', 'listitem row')
+                    var subdiv = $(document.createElement('div'))
+                    subdiv.attr('class', 'col-xs-6');
+                    var subdi = $(document.createElement('div'))
+                    subdi.attr('class', 'col-xs-6 context');
+                    var img = "http://mumbaiparties.com/assets/uploads/thumb__"+value.image;
+                    var title = $(document.createElement('h1')).html(value.event_name)
+                    title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                    var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                    var category = $(document.createElement('p')).html(value.event_start+" to "+value.event_end)
+                    rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                    category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                    var image = $("<img>")
+                    image.attr('class', 'eventlistimg')
+                    image.attr('style', 'background: url('+img+')');
+                    $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                }
+            })
+        }        
+
+        function displayliquorslist(data){
+            $('#listview').show();
+            console.log(data);
+            $.each(data, function(index, value){
+                console.log(value.id);
+                if(value.id ==  0){
+                    var cont = $(document.createElement('h4')).html('There are no offers available, try out another')
+                    cont.attr('style', 'width: 100%; background: #151515; color: #f1f1f1; font-size: 1.2em; padding: 13% 14% 6%; text-align: center;')
+                    $('#listview').append(cont);
+                } else {
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('id', value.id)
+                    anchor.attr('onclick', 'getliquorsdata(this.id);')
+                    var mainlist = $(document.createElement('div'))
+                    mainlist.attr('class', 'listitem row')
+                    var subdiv = $(document.createElement('div'))
+                    subdiv.attr('class', 'col-xs-6');
+                    var subdi = $(document.createElement('div'))
+                    subdi.attr('class', 'col-xs-6 context');
+                    var img = "http://mumbaiparties.com/assets/uploads/thumb__"+value.image;
+                    var title = $(document.createElement('h1')).html(value.event_name)
+                    title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                    var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                    var category = $(document.createElement('p')).html(value.event_start+" to "+value.event_end)
+                    rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                    category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                    var image = $("<img>")
+                    image.attr('class', 'eventlistimg')
+                    image.attr('style', 'background: url('+img+')');
+                    $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                }
+            })
+        }        
+
+	    function displaylist(data){
+            $('#listview').show();
+            console.log(data);
+			$.each(data, function(index, value){
+                console.log(value.id);
+                if(value.id ==  0){
+                    var cont = $(document.createElement('h4')).html('There are no events available, try out another')
+                    cont.attr('style', 'width: 100%; background: #151515; color: #f1f1f1; font-size: 1.2em; padding: 13% 14% 6%; text-align: center;')
+                    $('#listview').append(cont);
+                } else {
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('id', value.event_id)
+                    anchor.attr('onclick', 'getevents(this.id);')
+                    var mainlist = $(document.createElement('div'))
+                    mainlist.attr('class', 'listitem row')
+                    var subdiv = $(document.createElement('div'))
+                    subdiv.attr('class', 'col-xs-6');
+                    var subdi = $(document.createElement('div'))
+                    subdi.attr('class', 'col-xs-6 context');
+                    var img = "http://mumbaiparties.com/assets/uploads/thumb__"+value.image;
+                    var title = $(document.createElement('h1')).html(value.event_name)
+                    title.attr('style', 'font-size: 1.2em; color: #f1f1f1')
+                    var rating = $(document.createElement('p')).html("@"+value.entity_name)
+                    var category = $(document.createElement('p')).html(value.event_start+" to "+value.event_end)
+                    rating.attr('style', 'font-size: 0.8em; color: #c75656')
+                    category.attr('style', 'font-size: 0.8em; color: #f1f1f1')
+                    var image = $("<img>")
+                    image.attr('class', 'eventlistimg')
+                    image.attr('style', 'background: url('+img+')');
+                    $('#listview').append(anchor.append(mainlist.append(subdiv.append(image)).append(subdi.append(title).append(rating).append(category))));
+                }
+			})
+            $('.loader').fadeOut(4000);
+	    }
+
+        function offers(){
+            $('.loader').fadeIn();
+            $('#today').css('color', '#ffffff');
+            $('#liquor').css('color', '#ffffff');
+            $('#upcoming').css('color', '#ffffff');
+            $('#offer').css('color', 'rgb(67, 142, 174)');
+            $('#calendarlbl, #calendarouter').hide();
+            var id = $("#location").val();
+            console.log(id);
+            $('#listview').empty();
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_offers_list_data/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    displayofferslist(data);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function liquor(){
+            $('.loader').fadeIn();
+            $('#today').css('color', '#ffffff');
+            $('#liquor').css('color', 'rgb(67, 142, 174)');
+            $('#upcoming').css('color', '#ffffff');
+            $('#offer').css('color', '#ffffff');
+            $('#calendarlbl, #calendarouter, #menuimgshead').hide();
+            var id = $("#location").val();
+            console.log(id);
+            $('#listview').empty();
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_liquor_list_data/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    displayliquorslist(data);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }        
+
+        function getevents(id){
+            $('.loader').fadeIn();
+            console.log(id);
+            $('#eventlist, #backbtn').hide();
+            $('#eventpage, #backlist').show();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_events/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function getliquorinfo(id){
+            $('.loader').fadeIn();
+            $('#map-canvas, #listview, #filternav, #tabnav, #backbtn, #backlist, #menuimgshead').hide();
+            $('#eventpage, #backlist').show();
+            $('#eventcontent').empty();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_liquor_data/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function getliquorinfomap(id){
+            $('.loader').fadeIn();
+            $('#eventlist, #map-canvas, #backbtn, #backlist, #topnavmap, #menuimgshead').hide();
+            $('#eventpage, #backmap').show();
+            $('#eventcontent').empty();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_liquor_data/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }        
+
+        function getoffers(id){
+            $('.loader').fadeIn();
+            console.log(id);
+            $('#eventlist, #backbtn, #menuimgshead').hide();
+            $('#eventpage, #backlist').show();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_offers/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function getliquorsdata(id){
+            $('.loader').fadeIn();
+            console.log(id);
+            $('#eventlist, #backbtn').hide();
+            $('#eventpage, #backlist').show();
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_liquor_data/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function displayres(data){
+            var data = data[0];
+            $.each(data, function(index, value){
+                if(value.id != 0){
+                    var maindiv = $(document.createElement('div'))
+                    maindiv.attr('class', 'item')
+                    var img = $('<img>')
+                    maindiv.attr('src', 'http://mumbaiparties.com/assets/uploads/'+value.url)
+                    $('#owl-demo').append(maindiv.append(img))
+                    $("#owl-demo").owlCarousel({
+                        navigation : true,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
+                        singleItem:true
+                    });
+                } else {
+                    var head = $(document.createElement('h1')).html('No menus available.')
+                    var descdiv = $(document.createElement('div'))
+                    descdiv.attr('class', 'eventsub')
+                    $('#owl-demo').append(descdiv.append(head))
+                }
+            })
+        }
+
+        function displaymenu(data){
+            var data = data[0];
+            $.each(data, function(index, value){
+                if(value.id != 0){
+                    var anchor = $(document.createElement('a'))
+                    anchor.attr('class', 'grouped_elements')
+                    anchor.attr('style', 'padding: 5% 4%')
+                    anchor.attr('rel', 'group1')
+                    anchor.attr('href', 'http://mumbaiparties.com/assets/uploads/'+value.url)
+                    var img = $('<img>')
+                    img.attr('src', 'http://mumbaiparties.com/assets/uploads/thumb__'+value.url)
+                    $('#menuimgs').append(anchor.append(img))
+                    $("a.grouped_elements").fancybox({
+                    	
+                    });
+                } else {
+                    var head = $(document.createElement('h1')).html('No menus available.')
+                    var descdiv = $(document.createElement('div'))
+                    descdiv.attr('class', 'eventsub')
+                    $('#menuimgs').append(descdiv.append(head))
+                }
+            })
+			$('#menuslide').show();
+        }
+
+        function displaycontent(data){
+            $.each(data, function(index, value){
+                if(value.id == 0){
+                    var back = $(document.createElement('div'))
+                    back.attr('style', 'background: url(http://mumbaiparties.com/assets/uploads/'+value.image+'); background-size: cover; height: 300px; width: 100%; opacity: 0.6')
+                    var calldivmain = $(document.createElement('div'))
+                    calldivmain.attr('style', 'padding: 65% 0 0 5%; position: absolute')
+                    var calldivsub = $(document.createElement('div'))
+                    calldivsub.attr('style', 'background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff')
+                    calldivsub.attr('onclick','makecall("'+value.contact+'")');
+                    var span = $(document.createElement('div'))
+                    span.attr('style','padding: 15px')
+                    span.attr('class','background: url(img/call.png) no-repeat; height: 35px');
+                    var calllabel = $(document.createElement('label'))
+                    calllabel.attr('onclick','makecall("'+value.contact+'")')
+                    var locdivmain = $(document.createElement('div'))
+                    locdivmain.attr('style', 'padding: 65% 0 0 80%; position: absolute')
+                    var locdivsub = $(document.createElement('div'))
+                    locdivsub.attr('style', 'background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff')
+                    locdivsub.attr('onclick','initialize_direct('+value.latitute+','+value.longitute+','+value.id+')');
+                    var locspan = $(document.createElement('span'))
+                    locspan.attr('style','padding: 15px')
+                    locspan.attr('class','fa fa-2x fa-street-view')
+                    var loclabel = $(document.createElement('label'))
+                    loclabel.attr('onclick','initialize_direct('+value.latitute+','+value.longitute+','+value.id+')')
+                    var namediv = $(document.createElement('div'))  
+                    namediv.attr('class', 'eventname')
+                    var name = $(document.createElement('h1')).html(value.event_name)
+                    name.attr('style', 'color: #c75656')
+                    var timediv = $(document.createElement('div'))
+                    timediv.attr('class', 'eventsub')
+                    var time = $(document.createElement('h1')).html('Timings: '+value.event_start+' to '+value.event_end)
+                    var adddiv = $(document.createElement('div'))
+                    adddiv.attr('class', 'eventsub')
+                    var add = $(document.createElement('h1')).html('Address: '+value.address)
+                    var calldiv = $(document.createElement('div'))
+                    calldiv.attr('class', 'eventsub')
+                    calldiv.attr('onclick','makecall("'+value.contact+'")');
+                    var callsys = $(document.createElement('div'))
+                    callsys.attr('style', 'background: url(img/call.png) no-repeat; height: 35px')
+                    var locadiv = $(document.createElement('div'))
+                    locadiv.attr('onclick','initialize_direct('+value.latitute+','+value.longitute+','+value.id+')');
+                    locadiv.attr('class', 'eventsub')
+                    var loca = $(document.createElement('div'))
+                    loca.attr('style', 'background: url(img/directions.png) no-repeat; height: 35px')
+                    var descdiv = $(document.createElement('div'))
+                    descdiv.attr('class', 'eventsub')
+                    var desc = $(document.createElement('h1')).html('Description: '+value.description)
+                    $('#eventcontent').append(back).append(namediv.append(name)).append(timediv.append(time)).append(adddiv.append(add)).append(calldiv.append(callsys)).append(locadiv.append(loca))
+                } else {
+                    var back = $(document.createElement('div'))
+                    back.attr('style', 'background: url(http://mumbaiparties.com/assets/uploads/'+value.image+'); background-size: cover; height: 300px; width: 100%; opacity: 0.6')
+                    var calldivmain = $(document.createElement('div'))
+                    calldivmain.attr('style', 'padding: 65% 0 0 5%; position: absolute')
+                    var calldivsub = $(document.createElement('div'))
+                    calldivsub.attr('style', 'background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff')
+                    calldivsub.attr('onclick','makecall("'+value.contact+'")');
+                    var span = $(document.createElement('div'))
+                    span.attr('style','padding: 15px')
+                    span.attr('class','background: url(img/call.png) no-repeat; height: 35px');
+                    var calllabel = $(document.createElement('label'))
+                    calllabel.attr('onclick','makecall("'+value.contact+'")')
+                    var locdivmain = $(document.createElement('div'))
+                    locdivmain.attr('style', 'padding: 65% 0 0 80%; position: absolute')
+                    var locdivsub = $(document.createElement('div'))
+                    locdivsub.attr('style', 'background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff')
+                    var locspan = $(document.createElement('span'))
+                    locspan.attr('style','padding: 15px')
+                    locspan.attr('class','fa fa-2x fa-street-view')
+                    var loclabel = $(document.createElement('label'))
+                    loclabel.attr('onclick','initialize_direct('+value.latitute+','+value.longitute+','+value.id+')')
+                    var namediv = $(document.createElement('div'))
+                    namediv.attr('class', 'eventname')
+                    var name = $(document.createElement('h1')).html(value.event_name)
+                    var timediv = $(document.createElement('div'))
+                    timediv.attr('class', 'eventsub')
+                    var time = $(document.createElement('h1')).html('Timings: '+value.event_start+' to '+value.event_end)
+                    var entitydiv = $(document.createElement('div'))
+                    entitydiv.attr('class', 'eventsub')
+                    var entity = $(document.createElement('h1')).html('@'+value.entity_name)
+                    entity.attr('style', 'color: #c75656');
+                    var adddiv = $(document.createElement('div'))
+                    adddiv.attr('class', 'eventsub')
+                    var add = $(document.createElement('h1')).html('Address: '+value.address)
+                    var calldiv = $(document.createElement('div'))
+                    calldiv.attr('class', 'eventsub')
+                    calldiv.attr('onclick','makecall("'+value.contact+'")');
+                    var callsys = $(document.createElement('div'))
+                    callsys.attr('style', 'background: url(img/call.png) no-repeat; height: 35px')
+                    var locadiv = $(document.createElement('div'))
+                    locadiv.attr('class', 'eventsub')
+                    locadiv.attr('onclick','initialize_direct('+value.latitute+','+value.longitute+','+value.id+')');
+                    var loca = $(document.createElement('div'))
+                    loca.attr('style', 'background: url(img/directions.png) no-repeat; height: 35px')
+                    var descdiv = $(document.createElement('div'))
+                    descdiv.attr('class', 'eventsub')   
+                    var desc = $(document.createElement('h1')).html('Description: '+value.description)
+                    desc.attr('class', 'eventsubheader')
+                    $('#eventcontent').append(back).append(namediv.append(name)).append(entitydiv.append(entity)).append(timediv.append(time)).append(adddiv.append(add)).append(calldiv.append(callsys)).append(locadiv.append(loca)).append(descdiv.append(desc))                    
+                }
+
+            })
+        }
+
+// <div id="eventcontent" class="eventcontent">
+//     <div id="barimage" style="background: url('http://casaestilo.in/mparties/assets/uploads/05eb8-Hoppipola-21.jpg'); ">
+//         <div style="padding: 65% 0 0 5%">
+//             <div style="background: #66CD00; height: 60px; width: 60px; border: none; border-radius: 50px; color: #fff">
+//                 <span class="fa fa-2x fa-phone" style="padding: 30%"></span>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="eventname">
+//         <h1>Event Name</h1>
+//     </div>
+//     <div class="eventsub">
+//         <h1>9pm to 1am</h1>
+//     </div>
+//     <div class="eventsub">
+//         <h1>Boveda, Andheri(W), Mumbai</h1>
+//     </div>
+//     <div class="eventsub">
+//         <h1>menu</h1>
+//    </div>
+// </div>
+		function loadslecteddata(date){
+            $('.loader').fadeIn();
+            $('#offer').css('color', '#ffffff');
+            $('#liquor').css('color', '#ffffff');
+            $('#upcoming').css('color', '#ffffff');
+            $('#today').css('color', '#ffffff');
+            var id = $("#location").val();
+            console.log(id);
+            $('#listview').empty();
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_selecteddate_list_data/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id,
+                    date : date
+                },
+                success: function(data){
+                    console.log(data);
+                    $('#calendarouter').hide();
+                    $('#listview').empty();
+                    $('#listview').show();
+                    displaylist(data);
+                }
+            })
+            $('.loader').fadeOut(5000);
+		}
+
+        function displaybarpage(){
+            $('#backmap').show();
+            $('#backpage').hide();
+            $('#eventcontent, #menuimgs, #eventlisting, #offerlisting').empty();
+            var id = $('#pageid').val();
+            $('#pageid').val(0);
+            geteventsbyentity(id);
+        }
+
+        function geteventfromlist(id, event_id){
+            $('#backmap, #menuslide, #eventslide, #offerslide').hide();
+            $('#backpage').show();
+            $('#eventcontent, #menuimgs, #eventlisting, #offerlisting').empty();
+            $('#pageid').val(id);
+            getselectedevents(event_id);
+        }
+
+        function getselectedevents(id){
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_events/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                }
+            })
+        }
+
+        function getselectedoffers(id){
+            $.ajax({
+                url: 'http://mumbaiparties.com/index.php/api/get_offers/',
+                type: 'post',
+                crossDomain: true,
+                data: {
+                    id: id
+                },
+                success: function(data){
+                    console.log(data.content);
+                    console.log(data.menu_images);
+                    console.log(data.res_images);
+                    displaycontent(data.content);
+                    displaymenu(data.menu_images);
+                    displayres(data.res_images);
+                }
+            })
+        }
+
+        function getofferfromlist(id, offer_id){
+            $('#backmap, #menuslide, #eventslide, #offerslide').hide();
+            $('#backpage').show();
+            $('#eventcontent, #menuimgs, #eventlisting, #offerlisting').empty();
+            $('#pageid').val(id);
+            getselectedoffers(offer_id);
+        }
+
+        function today_list(){
+            $('.loader').fadeIn();
+            $('#offer').css('color', '#ffffff');
+            $('#liquor').css('color', '#ffffff');
+            $('#upcoming').css('color', '#ffffff');
+            $('#today').css('color', 'rgb(67, 142, 174)');
+            $('#calendarlbl, #calendarouter').hide();
+            var id = $("#location").val();
+            console.log(id);
+            $('#listview').empty();
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_today_list_data/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    displaylist(data);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function upcoming_list(){
+            $('.loader').fadeIn();
+            $('#offer').css('color', '#ffffff');
+            $('#liquor').css('color', '#ffffff');
+            $('#today').css('color', '#ffffff');
+            $('#upcoming').css('color', 'rgb(67, 142, 174)');
+            $('#calendarlbl').show();
+            var id = $("#location").val();
+            console.log(id);
+            $('#listview').empty();
+            $.ajax({
+                url:'http://mumbaiparties.com/index.php/api/get_upcoming_list/',
+                type: 'post',
+                crossDomain:true,
+                data: {
+                    id : id
+                },
+                success: function(data){
+                    console.log(data);
+                    displaylist(data);
+                }
+            })
+            $('.loader').fadeOut(5000);
+        }
+
+        function togglemenu(){
+			window.scrollBy(0, 1500);
+		}
+
+        function toggleevent(){
+			window.scrollBy(0, 1500);
+		}
+        function toggleoffer(){
+			window.scrollBy(0, 1500);
+		}
+
+    </script>
+    <script type="text/javascript" src="https://dl.dropboxusercontent.com/u/40036711/Scripts/jquery.ddslick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/lib/moment.min.js"></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.3.1/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.min.js"></script>
+</body>
+</html>
